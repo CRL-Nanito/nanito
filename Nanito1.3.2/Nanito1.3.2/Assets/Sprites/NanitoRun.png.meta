@@ -1,0 +1,146 @@
+fileFormatVersion: 2
+guid: 41f096bd3276c447aad38d650fc07837
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: NanitoRun_0
+    21300002: NanitoRun_2
+    21300004: NanitoRun_3
+    21300006: NanitoRun_4
+    21300008: NanitoRun_5
+    21300010: NanitoRun_12
+    21300012: NanitoRun_15
+    21300014: NanitoRun_16
+    21300016: NanitoRun_17
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: .25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  seamlessCubemap: 0
+  textureFormat: -1
+  maxTextureSize: 2048
+  textureSettings:
+    filterMode: -1
+    aniso: 1
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: .5, y: .5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 100
+  alphaIsTransparency: 1
+  textureType: 8
+  buildTargetSettings: []
+  spriteSheet:
+    sprites:
+    - name: NanitoRun_0
+      rect:
+        serializedVersion: 2
+        x: 43
+        y: 891
+        width: 121
+        height: 155
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: NanitoRun_2
+      rect:
+        serializedVersion: 2
+        x: 257
+        y: 893
+        width: 106
+        height: 155
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: NanitoRun_3
+      rect:
+        serializedVersion: 2
+        x: 457
+        y: 895
+        width: 96
+        height: 154
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: NanitoRun_4
+      rect:
+        serializedVersion: 2
+        x: 660
+        y: 889
+        width: 101
+        height: 160
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: NanitoRun_5
+      rect:
+        serializedVersion: 2
+        x: 858
+        y: 889
+        width: 96
+        height: 160
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: NanitoRun_12
+      rect:
+        serializedVersion: 2
+        x: 58
+        y: 675
+        width: 96
+        height: 155
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: NanitoRun_15
+      rect:
+        serializedVersion: 2
+        x: 257
+        y: 677
+        width: 103
+        height: 155
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: NanitoRun_16
+      rect:
+        serializedVersion: 2
+        x: 456
+        y: 674
+        width: 106
+        height: 155
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: NanitoRun_17
+      rect:
+        serializedVersion: 2
+        x: 654
+        y: 674
+        width: 112
+        height: 155
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+  spritePackingTag: 
+  userData: 

@@ -32,7 +32,7 @@ public class NanitoControllerScript : MonoBehaviour {
 		if (grounded)
 			doubleJump = false;
 
-		anim.SetFloat ("vSpeed", rigidbody2D.velocity.y); //how fast r we going up or down
+//		anim.SetFloat ("vSpeed", rigidbody2D.velocity.y); //how fast r we going up or down
 
 
 		float move = Input.GetAxis ("Horizontal");

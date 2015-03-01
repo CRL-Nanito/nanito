@@ -109,7 +109,6 @@ public class NanitoControllerScript : MonoBehaviour {
 			if (i == 5) {
 				maxSpeed = 30;
 				anim.enabled = true;
-				FixedUpdate();
 				Destroy(boss.gameObject.collider2D);
 				boss.gameObject.renderer.enabled = false;
 
@@ -187,6 +186,8 @@ public class NanitoControllerScript : MonoBehaviour {
 				} 
 				if (clicks == 3) {
 					showPopUp = false;
+					maxSpeed = 30;
+					anim.enabled = true;
 					clicks = 0;
 				}
 			} else
@@ -198,6 +199,8 @@ public class NanitoControllerScript : MonoBehaviour {
 				} 
 				if (clicks == 3) {
 					showPopUp = false;
+					maxSpeed = 30;
+					anim.enabled = true;
 					clicks = 0;
 				}
 			}
@@ -214,6 +217,8 @@ public class NanitoControllerScript : MonoBehaviour {
 				} 
 				if (clicks == 3) {
 					showPopUp = false;
+					maxSpeed = 30;
+					anim.enabled = true;
 					clicks = 0;
 				}
 			} else
@@ -225,6 +230,8 @@ public class NanitoControllerScript : MonoBehaviour {
 				} 
 				if (clicks == 3) {
 					showPopUp = false;
+					maxSpeed = 30;
+					anim.enabled = true;
 					clicks = 0;
 				}
 			} else
@@ -244,6 +251,8 @@ public class NanitoControllerScript : MonoBehaviour {
 				} 
 				if (clicks == 3) {
 					showPopUp = false;
+					maxSpeed = 30;
+					anim.enabled = true;
 					clicks = 0;
 				}
 			} else
@@ -255,6 +264,8 @@ public class NanitoControllerScript : MonoBehaviour {
 				} 
 				if (clicks == 3) {
 					showPopUp = false;
+					maxSpeed = 30;
+					anim.enabled = true;
 					clicks = 0;
 				}
 			} else
@@ -274,6 +285,8 @@ public class NanitoControllerScript : MonoBehaviour {
 				} 
 				if (clicks == 3) {
 					showPopUp = false;
+					maxSpeed = 30;
+					anim.enabled = true;
 					clicks = 0;
 				}
 			} else
@@ -289,6 +302,8 @@ public class NanitoControllerScript : MonoBehaviour {
 				} 
 				if (clicks == 3) {
 					showPopUp = false;
+					maxSpeed = 30;
+					anim.enabled = true;
 					clicks = 0;
 				}
 			}
@@ -304,6 +319,8 @@ public class NanitoControllerScript : MonoBehaviour {
 				} 
 				if (clicks == 3) {
 					showPopUp = false;
+					maxSpeed = 30;
+					anim.enabled = true;
 					clicks = 0;
 				}
 			} else
@@ -319,6 +336,8 @@ public class NanitoControllerScript : MonoBehaviour {
 				} 
 				if (clicks == 3) {
 					showPopUp = false;
+					maxSpeed = 30;
+					anim.enabled = true;
 					clicks = 0;
 				}
 			}

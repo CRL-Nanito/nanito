@@ -5,6 +5,7 @@ public class NanitoControllerScript : MonoBehaviour {
 
 	public float maxSpeed = 10f;
 	bool facingRight = true;
+	private float move;
 
 	Animator anim;
 
@@ -35,7 +36,7 @@ public class NanitoControllerScript : MonoBehaviour {
 //		anim.SetFloat ("vSpeed", rigidbody2D.velocity.y); //how fast r we going up or down
 
 
-		float move = Input.GetAxis ("Horizontal");
+		move = Input.GetAxis ("Horizontal");
 
 		//mid-air movement enabler
 		//if (!grounded && Mathf.Abs(move) > 0.01f) return;
@@ -43,7 +44,6 @@ public class NanitoControllerScript : MonoBehaviour {
 		//handles the anims
 		anim.SetFloat ("Speed", Mathf.Abs (move));
 
-		//horizontal movement
 		rigidbody2D.velocity = new Vector2 (move * maxSpeed, rigidbody2D.velocity.y);
 
 		if (move > 0 && !facingRight) 
@@ -103,11 +103,21 @@ public class NanitoControllerScript : MonoBehaviour {
 
 		if (collision.gameObject.tag == "Boss") {
 			showPopUp = true;
+			maxSpeed = 0;
+			anim.enabled = false;
+
 			if (i == 5) {
-				showPopUp = false;
-				boss.gameObject.renderer.enabled = false;
+				maxSpeed = 30;
+				anim.enabled = true;
+				FixedUpdate();
 				Destroy(boss.gameObject.collider2D);
+				boss.gameObject.renderer.enabled = false;
+
 			}
+		}
+
+		if (collision.gameObject.tag == "Door") {
+			Application.LoadLevel("Hidrofobia");
 		}
 
 	}
@@ -133,11 +143,11 @@ public class NanitoControllerScript : MonoBehaviour {
 		transform.localScale = theScale;
 	}
 
-
 	void OnCollisionExit2D(Collider2D collision){
-		if(collision.gameObject.tag == "MovingPlatform"){
+		if (collision.gameObject.tag == "MovingPlatform"){
 			this.transform.parent = null;
 		}
+
 	}   
 
 	public bool showPopUp = false;
@@ -145,13 +155,12 @@ public class NanitoControllerScript : MonoBehaviour {
 	public static int correct_answer = 0;
 	int i = 0;
 	int clicks = 0;
-	
+
 	void OnGUI()
 	{		
 		//show window if you touched collider
 		if (showPopUp == true) {
-			GUI.Window (0, new Rect ((Screen.width / 2) - 150, (Screen.height / 2) - 130, 300, 250), ShowGUI, "BOSS FIGHT"); 
-			Time.timeScale = 0;
+			GUI.Window (0, new Rect ((Screen.width / 2) - 150, (Screen.height / 2) - 130, 300, 250), ShowGUI, "BOSS FIGHT");
 		}
 	}
 
@@ -159,9 +168,13 @@ public class NanitoControllerScript : MonoBehaviour {
 	{	
 		bool damagePlayer = false;
 		HealthScript playerHealth = this.GetComponent<HealthScript> ();
+
+		GUI.backgroundColor = Color.black;
+		GUI.contentColor = Color.green;
 		
 		if  (i == 0) {
-			GUI.Label (new Rect (65, 40, 200, 500), "Are you hungry?\n [A] Yes\n [B] No\n [C] I don\'t know\n");
+		
+			GUI.Label (new Rect (65, 40, 200, 500),  "Are you hungry?\n [A] Yes\n [B] No\n [C] I don\'t know\n");
 			if (GUI.Button (new Rect (50, 150, 40, 30), "A")) {
 				correct_answer = 1;
 				i++;
@@ -175,7 +188,6 @@ public class NanitoControllerScript : MonoBehaviour {
 				if (clicks == 3) {
 					showPopUp = false;
 					clicks = 0;
-					Time.timeScale = 1;
 				}
 			} else
 			if (GUI.Button (new Rect (150, 150, 40, 30), "C")) {
@@ -187,7 +199,6 @@ public class NanitoControllerScript : MonoBehaviour {
 				if (clicks == 3) {
 					showPopUp = false;
 					clicks = 0;
-					Time.timeScale = 1;
 				}
 			}
 		}
@@ -204,7 +215,6 @@ public class NanitoControllerScript : MonoBehaviour {
 				if (clicks == 3) {
 					showPopUp = false;
 					clicks = 0;
-					Time.timeScale = 1;
 				}
 			} else
 			if (GUI.Button (new Rect (100, 150, 40, 30), "B")) {
@@ -216,7 +226,6 @@ public class NanitoControllerScript : MonoBehaviour {
 				if (clicks == 3) {
 					showPopUp = false;
 					clicks = 0;
-					Time.timeScale = 1;
 				}
 			} else
 			if (GUI.Button (new Rect (150, 150, 40, 30), "C")) {
@@ -236,7 +245,6 @@ public class NanitoControllerScript : MonoBehaviour {
 				if (clicks == 3) {
 					showPopUp = false;
 					clicks = 0;
-					Time.timeScale = 1;
 				}
 			} else
 			if (GUI.Button (new Rect (100, 150, 40, 30), "B")) {
@@ -248,7 +256,6 @@ public class NanitoControllerScript : MonoBehaviour {
 				if (clicks == 3) {
 					showPopUp = false;
 					clicks = 0;
-					Time.timeScale = 1;
 				}
 			} else
 			if (GUI.Button (new Rect (150, 150, 40, 30), "C")) {
@@ -268,7 +275,6 @@ public class NanitoControllerScript : MonoBehaviour {
 				if (clicks == 3) {
 					showPopUp = false;
 					clicks = 0;
-					Time.timeScale = 1;
 				}
 			} else
 			if (GUI.Button (new Rect (100, 150, 40, 30), "B")) {
@@ -284,7 +290,6 @@ public class NanitoControllerScript : MonoBehaviour {
 				if (clicks == 3) {
 					showPopUp = false;
 					clicks = 0;
-					Time.timeScale = 1;
 				}
 			}
 		}
@@ -300,7 +305,6 @@ public class NanitoControllerScript : MonoBehaviour {
 				if (clicks == 3) {
 					showPopUp = false;
 					clicks = 0;
-					Time.timeScale = 1;
 				}
 			} else
 			if (GUI.Button (new Rect (100, 150, 40, 30), "B")) {
@@ -316,14 +320,13 @@ public class NanitoControllerScript : MonoBehaviour {
 				if (clicks == 3) {
 					showPopUp = false;
 					clicks = 0;
-					Time.timeScale = 1;
 				}
 			}
 		}
 		
 		if (i == 5) {
 			showPopUp = false;
-			Time.timeScale = 1;
+
 		}
 		
 		

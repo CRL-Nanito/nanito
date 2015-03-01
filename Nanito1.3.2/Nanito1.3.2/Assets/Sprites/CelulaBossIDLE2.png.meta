@@ -1,0 +1,135 @@
+fileFormatVersion: 2
+guid: 9b03b19e967e247209f57f4d7e57e5cb
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: CelulaBossIDLE2_0
+    21300002: CelulaBossIDLE2_1
+    21300004: CelulaBossIDLE2_2
+    21300006: CelulaBossIDLE2_3
+    21300008: CelulaBossIDLE2_4
+    21300010: CelulaBossIDLE2_5
+    21300012: CelulaBossIDLE2_6
+    21300014: CelulaBossIDLE2_7
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 1
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: .25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  seamlessCubemap: 0
+  textureFormat: -1
+  maxTextureSize: 1024
+  textureSettings:
+    filterMode: 1
+    aniso: 16
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: .5, y: .5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 50
+  alphaIsTransparency: 1
+  textureType: 8
+  buildTargetSettings: []
+  spriteSheet:
+    sprites:
+    - name: CelulaBossIDLE2_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1196
+        width: 600
+        height: 404
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: CelulaBossIDLE2_1
+      rect:
+        serializedVersion: 2
+        x: 637
+        y: 1194
+        width: 600
+        height: 403
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: CelulaBossIDLE2_2
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 800
+        width: 600
+        height: 395
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: CelulaBossIDLE2_3
+      rect:
+        serializedVersion: 2
+        x: 636
+        y: 797
+        width: 600
+        height: 398
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: CelulaBossIDLE2_4
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 400
+        width: 600
+        height: 400
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: CelulaBossIDLE2_5
+      rect:
+        serializedVersion: 2
+        x: 636
+        y: 396
+        width: 600
+        height: 401
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: CelulaBossIDLE2_6
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 600
+        height: 400
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: CelulaBossIDLE2_7
+      rect:
+        serializedVersion: 2
+        x: 636
+        y: 0
+        width: 600
+        height: 396
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+  spritePackingTag: 
+  userData: 

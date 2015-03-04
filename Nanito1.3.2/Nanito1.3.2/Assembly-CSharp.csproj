@@ -46,18 +46,19 @@
 	</Reference>
   </ItemGroup>
   <ItemGroup>
-     <Compile Include="Assets\CharacterChange.cs" />
      <Compile Include="Assets\Scripts\BackgroundScroller.cs" />
      <Compile Include="Assets\Scripts\BossFight.cs" />
      <Compile Include="Assets\Scripts\Camera2DFollow.cs" />
      <Compile Include="Assets\Scripts\CameraRunnerScript.cs" />
      <Compile Include="Assets\Scripts\ChangeScene.cs" />
+     <Compile Include="Assets\Scripts\CharacterChange.cs" />
      <Compile Include="Assets\Scripts\FerrofluidScript.cs" />
      <Compile Include="Assets\Scripts\FloorScript.cs" />
      <Compile Include="Assets\Scripts\HealthControl.cs" />
      <Compile Include="Assets\Scripts\HealthScript.cs" />
      <Compile Include="Assets\Scripts\MovingPlatformScript.cs" />
      <Compile Include="Assets\Scripts\NanitoControllerScript.cs" />
+     <Compile Include="Assets\Scripts\PlayerSpawn.cs" />
      <Compile Include="Assets\Scripts\PopUpScript.cs" />
      <Compile Include="Assets\Scripts\RunHankey.cs" />
  <Reference Include="UnityEngine.UI">

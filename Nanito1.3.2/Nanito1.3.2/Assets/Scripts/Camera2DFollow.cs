@@ -3,9 +3,7 @@ using System.Collections;
 
 public class Camera2DFollow : MonoBehaviour {
 
-	public Transform Player1;
-
-	public Transform Player2;
+	public Transform Player1, Player2;
 	
 	public Vector2 Margin, Smoothing;
 	
@@ -17,12 +15,25 @@ public class Camera2DFollow : MonoBehaviour {
 
 	int player;
 
+	public GameObject nanito;
+
+	public GameObject nanita;
+
 	public void Start() {
 		player = ChangeScene.character;
 
 		_min = Bounds.bounds.min; 
 		_max = Bounds.bounds.max;
 		isFollowing = true;
+
+		if (player == 1) {
+			nanito.gameObject.SetActive(true);
+			nanita.gameObject.SetActive(false);
+		} 
+		else {
+			nanito.gameObject.SetActive(false);
+			nanita.gameObject.SetActive(true);
+		}
 
 	}
 	
@@ -48,7 +59,7 @@ public class Camera2DFollow : MonoBehaviour {
 			
 			transform.position = new Vector3 (x, y, transform.position.z);
 		} 
-		else {
+		if (player == 2) {
 			var x = transform.position.x;
 			var y = transform.position.y;
 			

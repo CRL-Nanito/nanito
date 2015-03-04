@@ -14,16 +14,16 @@ public class ChangeScene : MonoBehaviour {
 
 	public void CharacterSelect (int character1) {
 		character = character1;
-		if (character == 1) {
-			characterSelected = nanito;
-			nanito.gameObject.SetActive(true);
-			nanita.gameObject.SetActive(false);
-		} 
-		else {
-			characterSelected = nanita;
-			nanito.gameObject.SetActive(false);
-			nanita.gameObject.SetActive(true);
-		}
+//		if (character == 1) {
+//			characterSelected = nanito;
+//			nanito.gameObject.SetActive(true);
+//			nanita.gameObject.SetActive(false);
+//		} 
+//		else {
+//			characterSelected = nanita;
+//			nanito.gameObject.SetActive(false);
+//			nanita.gameObject.SetActive(true);
+//		}
 	}
 
 	public void sceneSelect (int sceneSelected1) {
@@ -38,7 +38,7 @@ public class ChangeScene : MonoBehaviour {
 
 	public void ChangeToScene () {
 		Application.LoadLevel ("nano");
-		DontDestroyOnLoad (characterSelected);
+//		DontDestroyOnLoad (characterSelected);
 		DontDestroyOnLoad (manager);
 	}
 

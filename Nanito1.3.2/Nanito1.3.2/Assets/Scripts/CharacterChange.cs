@@ -6,19 +6,19 @@ public class CharacterChange : MonoBehaviour {
 	public GameObject nanito;
 	public GameObject nanita;
 
-	static GameObject characterSelected;
+	private int characterSelected;
 
-	public void selectedCharacter (GameObject characterToSelect){
+	public void selectedCharacter (int characterToSelect){
 		characterSelected = characterToSelect;
 
-		Application.LoadLevel ("nano");
-
-//		if (characterSelected.tag == "Nanita") {
-//
-// 		} else {
-//			nanito.gameObject.SetActive(false);
-//			nanita.gameObject.SetActive(false);
-//		}
+		if (characterSelected == 1) {
+			nanito.gameObject.SetActive(true);
+			nanita.gameObject.SetActive(false);
+		} 
+		else {
+			nanito.gameObject.SetActive(false);
+			nanita.gameObject.SetActive(true);
+		}
 	}
 
 

@@ -2,7 +2,7 @@ using UnityEngine;
 using System.Collections;
 
 public class Camera2DFollow : MonoBehaviour {
-	
+
 	public Transform Player;
 	
 	public Vector2 Margin, Smoothing;
@@ -12,11 +12,16 @@ public class Camera2DFollow : MonoBehaviour {
 	private Vector3 _min, _max;
 	
 	public bool isFollowing { get; set;}
-	
+
 	public void Start() {
+		ChangeScene player = GetComponent<ChangeScene> ();
+
+		Player = player.characterSelected;
+
 		_min = Bounds.bounds.min; 
 		_max = Bounds.bounds.max;
 		isFollowing = true;
+
 	}
 	
 	public void Update() {

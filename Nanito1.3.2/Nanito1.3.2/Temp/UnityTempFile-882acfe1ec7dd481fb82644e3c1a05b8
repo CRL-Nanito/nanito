@@ -49,6 +49,7 @@
 'Assets/Scripts/CameraRunnerScript.cs'
 'Assets/Scripts/ChangeScene.cs'
 'Assets/Scripts/CharacterChange.cs'
+'Assets/Scripts/CharacterSelection.cs'
 'Assets/Scripts/FerrofluidScript.cs'
 'Assets/Scripts/FloorScript.cs'
 'Assets/Scripts/HealthControl.cs'

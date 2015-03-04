@@ -52,6 +52,7 @@
      <Compile Include="Assets\Scripts\CameraRunnerScript.cs" />
      <Compile Include="Assets\Scripts\ChangeScene.cs" />
      <Compile Include="Assets\Scripts\CharacterChange.cs" />
+     <Compile Include="Assets\Scripts\CharacterSelection.cs" />
      <Compile Include="Assets\Scripts\FerrofluidScript.cs" />
      <Compile Include="Assets\Scripts\FloorScript.cs" />
      <Compile Include="Assets\Scripts\HealthControl.cs" />

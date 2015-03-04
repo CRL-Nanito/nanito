@@ -51,6 +51,10 @@ public class NanitoControllerScript : MonoBehaviour {
 		else if (move < 0 && facingRight) 
 			Flip ();
 				
+
+//		if (Input.GetMouseButtonDown (0)) {
+//			Destroy(this.gameObject);
+//		}
 	}
 
 	void OnDestroy(){

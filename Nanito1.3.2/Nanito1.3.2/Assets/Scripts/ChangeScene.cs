@@ -8,12 +8,12 @@ public class ChangeScene : MonoBehaviour {
 	public GameObject manager;
 
 	// Receives parameter to change scenes
-	int character;
-	static int sceneSelected;
+	public static int character;
+	public int sceneSelected;
 	public GameObject characterSelected;
 
-	public void CharacterSelect (int character) {
-		this.character = character;
+	public void CharacterSelect (int character1) {
+		character = character1;
 		if (character == 1) {
 			characterSelected = nanito;
 			nanito.gameObject.SetActive(true);
@@ -26,11 +26,11 @@ public class ChangeScene : MonoBehaviour {
 		}
 	}
 
-	public void sceneSelect (int sceneSelected) {
-		if (sceneSelected == 100) {
+	public void sceneSelect (int sceneSelected1) {
+		if (sceneSelected1 == 100) {
 			Application.LoadLevel ("LevelSelect");
 		} else {
-			this.sceneSelected = sceneSelected;
+			sceneSelected = sceneSelected1;
 			Application.LoadLevel ("PlayerSelect");
 			DontDestroyOnLoad (manager);
 		}

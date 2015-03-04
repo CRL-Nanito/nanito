@@ -3,7 +3,9 @@ using System.Collections;
 
 public class Camera2DFollow : MonoBehaviour {
 
-	public Transform Player;
+	public Transform Player1;
+
+	public Transform Player2;
 	
 	public Vector2 Margin, Smoothing;
 	
@@ -13,10 +15,10 @@ public class Camera2DFollow : MonoBehaviour {
 	
 	public bool isFollowing { get; set;}
 
-	public void Start() {
-		ChangeScene player = GetComponent<ChangeScene> ();
+	int player;
 
-		Player = player.characterSelected;
+	public void Start() {
+		player = ChangeScene.character;
 
 		_min = Bounds.bounds.min; 
 		_max = Bounds.bounds.max;
@@ -25,24 +27,47 @@ public class Camera2DFollow : MonoBehaviour {
 	}
 	
 	public void Update() {
-		var x = transform.position.x;
-		var y = transform.position.y;
-		
-		if (isFollowing) {
-			if (Mathf.Abs(x - Player.position.x) > Margin.x)
-				x = Mathf.Lerp(x, Player.position.x, Smoothing.x * Time.deltaTime);
+
+		if (player == 1) {
+			var x = transform.position.x;
+			var y = transform.position.y;
 			
-			if (Mathf.Abs(y - Player.position.y) > Margin.y)
-				y = Mathf.Lerp(y, Player.position.y, Smoothing.y * Time.deltaTime);
+			if (isFollowing) {
+				if (Mathf.Abs (x - Player1.position.x) > Margin.x)
+					x = Mathf.Lerp (x, Player1.position.x, Smoothing.x * Time.deltaTime);
+				
+				if (Mathf.Abs (y - Player1.position.y) > Margin.y)
+					y = Mathf.Lerp (y, Player1.position.y, Smoothing.y * Time.deltaTime);
+				
+			}
 			
+			var cameraHalfWidth = camera.orthographicSize * ((float)Screen.width / Screen.height);
+			
+			x = Mathf.Clamp (x, _min.x + cameraHalfWidth, _max.x - cameraHalfWidth);
+			y = Mathf.Clamp (y, _min.y + camera.orthographicSize, _max.y - camera.orthographicSize);
+			
+			transform.position = new Vector3 (x, y, transform.position.z);
+		} 
+		else {
+			var x = transform.position.x;
+			var y = transform.position.y;
+			
+			if (isFollowing) {
+				if (Mathf.Abs(x - Player2.position.x) > Margin.x)
+					x = Mathf.Lerp(x, Player2.position.x, Smoothing.x * Time.deltaTime);
+				
+				if (Mathf.Abs(y - Player2.position.y) > Margin.y)
+					y = Mathf.Lerp(y, Player2.position.y, Smoothing.y * Time.deltaTime);
+				
+			}
+			
+			var cameraHalfWidth = camera.orthographicSize * ((float)Screen.width / Screen.height);
+			
+			x = Mathf.Clamp (x, _min.x + cameraHalfWidth, _max.x - cameraHalfWidth);
+			y = Mathf.Clamp (y, _min.y + camera.orthographicSize, _max.y - camera.orthographicSize);
+			
+			transform.position = new Vector3 (x, y, transform.position.z);
 		}
-		
-		var cameraHalfWidth = camera.orthographicSize * ((float)Screen.width / Screen.height);
-		
-		x = Mathf.Clamp (x, _min.x + cameraHalfWidth, _max.x - cameraHalfWidth);
-		y = Mathf.Clamp (y, _min.y + camera.orthographicSize, _max.y - camera.orthographicSize);
-		
-		transform.position = new Vector3 (x, y, transform.position.z);
 		
 	}
 }

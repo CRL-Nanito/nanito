@@ -86,6 +86,7 @@ public class NanitoControllerScript : MonoBehaviour {
 			hell = true;
 		}
 
+
 		//damage player
 		if (damagePlayer) {
 			if(playerHealth != null) playerHealth.Damage(1);
@@ -137,6 +138,7 @@ public class NanitoControllerScript : MonoBehaviour {
 			rigidbody2D.AddForce(new Vector2(0, jumpForce/2));
 		}
 	}
+	
 
 	//Flip world 180
 	void Flip() {

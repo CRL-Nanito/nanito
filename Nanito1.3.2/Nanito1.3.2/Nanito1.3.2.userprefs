@@ -1,8 +1,12 @@
 ﻿<Properties>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/CharacterSelection.cs">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/CharacterChange.cs">
     <Files>
-      <File FileName="Assets/Scripts/CharacterSelection.cs" Line="14" Column="7" />
+      <File FileName="Assets/Scripts/ChangeScene.cs" Line="47" Column="1" />
+      <File FileName="Assets/Scripts/CharacterChange.cs" Line="14" Column="32" />
+      <File FileName="Assets/Scripts/PlayerSpawn.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/Camera2DFollow.cs" Line="75" Column="1" />
+      <File FileName="Assets/Scripts/NanitoControllerScript.cs" Line="117" Column="46" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

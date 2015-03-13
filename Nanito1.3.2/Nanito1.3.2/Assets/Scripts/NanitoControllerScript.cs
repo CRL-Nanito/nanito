@@ -178,8 +178,8 @@ public class NanitoControllerScript : MonoBehaviour {
 		GUI.contentColor = Color.green;
 		
 		if  (i == 0) {
-		
-			GUI.Label (new Rect (65, 40, 200, 500),  "Are you hungry?\n [A] Yes\n [B] No\n [C] I don\'t know\n");
+			
+			GUI.Label (new Rect (65, 40, 200, 500),  "¿A que se debe la forma peculiar de un ferrofluido?\n [A] Las lineas del campo magnetico\n [B] Gravedad\n [C] Temperatura\n");
 			if (GUI.Button (new Rect (50, 150, 40, 30), "A")) {
 				correct_answer = 1;
 				i++;
@@ -214,7 +214,7 @@ public class NanitoControllerScript : MonoBehaviour {
 		
 		if (i == 1) {
 			showPopUp = true;
-			GUI.Label (new Rect (65, 40, 200, 500), "Do you want to eat?\n [A] Yes\n [B] No\n [C] I don\'t know\n");
+			GUI.Label (new Rect (65, 40, 200, 500), "¿Que es un ferrofluido?\n [A] Un liquido que no se polariza en un campo magnetico\n [B] Un liquido que repele el agua\n [C] Un liquido que se polariza en un campo magnetico\n");
 			if (GUI.Button (new Rect (50, 150, 40, 30), "A")) {
 				correct_answer = 0;
 				clicks++;
@@ -248,7 +248,7 @@ public class NanitoControllerScript : MonoBehaviour {
 		}
 		
 		if (i == 2) {
-			GUI.Label (new Rect (65, 40, 200, 500), "Do you want to take a nap?\n [A] Yes\n [B] No\n [C] I don\'t know\n");
+			GUI.Label (new Rect (65, 40, 200, 500), "¿Como los ferrofluidos ayudan a combatir el cancer?\n [A] Los ferrofluidos no son capaces de combatir el cancer\n [B] Quimeoterapia usando ferrofluidos\n [C] Utilizando una tecnica llamada cocinar el tumor\n");
 			if (GUI.Button (new Rect (50, 150, 40, 30), "A")) {
 				correct_answer = 0;
 				clicks++;
@@ -280,9 +280,8 @@ public class NanitoControllerScript : MonoBehaviour {
 				i++;
 			}
 		}
-		
 		if (i == 3) {
-			GUI.Label (new Rect (65, 40, 200, 500), "Are you sleepy?\n [A] Yes\n [B] No\n [C] I don\'t know\n");
+			GUI.Label (new Rect (65, 40, 200, 500), "¿Que le pasa a un iman y un metal si se le aplica ferrofluido?\n [A] Aumenta la friccion\n [B] Disminuye la friccion\n [C] Se queda igual\n");
 			if (GUI.Button (new Rect (50, 150, 40, 30), "A")) {
 				correct_answer = 0;
 				clicks++;
@@ -316,7 +315,7 @@ public class NanitoControllerScript : MonoBehaviour {
 		}
 		
 		if (i == 4) {
-			GUI.Label (new Rect (65, 40, 200, 500), "Are you alive?\n [A] Yes\n [B] No\n [C] I don\'t know\n");
+			GUI.Label (new Rect (65, 40, 200, 500), "¿En que parte de los robots se utiliza ferrofluidos?\n [A] La cabeza\n [B] Las coyunturas\n [C] El cuello\n");
 			if (GUI.Button (new Rect (50, 150, 40, 30), "A")) {
 				correct_answer = 0;
 				clicks++;
@@ -351,7 +350,7 @@ public class NanitoControllerScript : MonoBehaviour {
 		
 		if (i == 5) {
 			showPopUp = false;
-
+			
 		}
 		
 		

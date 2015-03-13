@@ -38,9 +38,9 @@ public class PopUpScript : MonoBehaviour {
 			} else
 			if (this.gameObject.tag == "Atomo2") {
 				GUI.Label (new Rect (65, 40, 200, 550), "Para combatir el cáncer  utilizando ferrofluidos " +
-			           "se inyectan las nanopartículas  al cuerpo, una vez " +
-			           "lleguen al tumor se  ponen un campo magnético " +
-			           "alterno para que las partículas roten y generen calor así se puede 'cocinar' el tumor.");
+			           "se inyectan las nanopartículas al cuerpo. Una vez " +
+			           "llegan al tumor, se utiliza un campo magnético " +
+			           "alterno para que las partículas roten y generen calor, y así 'cocinar' el tumor.");
 			}else
 			if (this.gameObject.tag == "Atomo3") {
 				GUI.Label (new Rect (65, 40, 200, 550), "La fricción entre un imán y un metal se puede reducir " +

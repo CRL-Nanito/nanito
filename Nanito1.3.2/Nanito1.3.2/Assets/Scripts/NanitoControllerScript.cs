@@ -16,6 +16,7 @@ public class NanitoControllerScript : MonoBehaviour {
 	public float jumpForce = 1500f;
 
 	bool doubleJump = false;
+	public Texture2D background;
 
 	// Use this for initialization
 	void Start () {
@@ -100,6 +101,7 @@ public class NanitoControllerScript : MonoBehaviour {
 			popUp.showPopUp = true;
 			popUp.gameObject.renderer.enabled = false;
 			Destroy(popUp.gameObject.collider2D);
+
 		}
 
 		if(collision.gameObject.tag == "MovingPlatform"){
@@ -107,13 +109,13 @@ public class NanitoControllerScript : MonoBehaviour {
 		}
 
 		if (collision.gameObject.tag == "Boss") {
+			boss.gameObject.renderer.enabled = true;
+
 			showPopUp = true;
 			maxSpeed = 0;
-			anim.enabled = false;
 
 			if (i == 5) {
-				maxSpeed = 30;
-				anim.enabled = true;
+				maxSpeed = 25;
 				Destroy(boss.gameObject.collider2D);
 				boss.gameObject.renderer.enabled = false;
 
@@ -165,7 +167,8 @@ public class NanitoControllerScript : MonoBehaviour {
 	{		
 		//show window if you touched collider
 		if (showPopUp == true) {
-			GUI.Window (0, new Rect ((Screen.width / 2) - 150, (Screen.height / 2) - 130, 300, 250), ShowGUI, "BOSS FIGHT");
+			GUI.Window (0, new Rect ((Screen.width / 2) - 350, (Screen.height / 2) - 130, 300, 250), ShowGUI, "BOSS FIGHT");
+			GUI.DrawTexture (new Rect ((Screen.width / 2) - 350, (Screen.height / 2) - 130, 300, 250), background);
 		}
 	}
 
@@ -174,9 +177,6 @@ public class NanitoControllerScript : MonoBehaviour {
 		bool damagePlayer = false;
 		HealthScript playerHealth = this.GetComponent<HealthScript> ();
 
-		GUI.backgroundColor = Color.black;
-		GUI.contentColor = Color.green;
-		
 		if  (i == 0) {
 			
 			GUI.Label (new Rect (65, 40, 200, 500),  "¿A que se debe la forma peculiar de un ferrofluido?\n [A] Las lineas del campo magnetico\n [B] Gravedad\n [C] Temperatura\n");

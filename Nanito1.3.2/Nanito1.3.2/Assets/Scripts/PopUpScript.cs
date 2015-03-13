@@ -3,7 +3,7 @@ using System.Collections;
 
 public class PopUpScript : MonoBehaviour {
 	public bool showPopUp = false;
-	public Texture2D background = null;
+	public Texture2D background;
 
 	void OnTriggerEnter(Collider2D otherObject){
 		
@@ -17,7 +17,8 @@ public class PopUpScript : MonoBehaviour {
 	void OnGUI()
 	{		//show window if you touched collider
 		if (showPopUp == true) {
-			GUI.Window (0, new Rect ((Screen.width / 2) - 150, (Screen.height / 2) - 130, 300, 250), ShowGUI, background);
+			GUI.Window (0, new Rect ((Screen.width / 2) - 150, (Screen.height / 2) - 130, 300, 250), ShowGUI, "Dato curioso");
+			GUI.DrawTexture (new Rect ((Screen.width / 2) - 150, (Screen.height / 2) - 130, 300, 250), background);
 			Time.timeScale=0;
 		}
 	}

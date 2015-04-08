@@ -16,7 +16,6 @@ public class NanitoControllerScript : MonoBehaviour {
 	public float jumpForce = 1500f;
 
 	bool doubleJump = false;
-	public Texture2D background;
 
 	// Use this for initialization
 	void Start () {
@@ -45,7 +44,7 @@ public class NanitoControllerScript : MonoBehaviour {
 		//handles the anims
 		anim.SetFloat ("Speed", Mathf.Abs (move));
 
-		rigidbody2D.velocity = new Vector2 (move * maxSpeed, rigidbody2D.velocity.y);
+		GetComponent<Rigidbody2D>().velocity = new Vector2 (move * maxSpeed, GetComponent<Rigidbody2D>().velocity.y);
 
 		if (move > 0 && !facingRight) 
 			Flip ();
@@ -77,6 +76,8 @@ public class NanitoControllerScript : MonoBehaviour {
 		FloorScript floor = collision.gameObject.GetComponent<FloorScript> ();
 		PopUpScript popUp = collision.gameObject.GetComponent<PopUpScript> ();
 		BossFight boss = collision.gameObject.GetComponent<BossFight> ();
+		ShieldScript shield = collision.gameObject.GetComponent<ShieldScript>();
+		FfScript ffBottle = collision.gameObject.GetComponent<FfScript>();
 
 		if (goo != null) {
 			damagePlayer = true;
@@ -99,9 +100,8 @@ public class NanitoControllerScript : MonoBehaviour {
 
 		if (collision.gameObject.name == "atomo") {
 			popUp.showPopUp = true;
-			popUp.gameObject.renderer.enabled = false;
-			Destroy(popUp.gameObject.collider2D);
-
+			popUp.gameObject.GetComponent<Renderer>().enabled = false;
+			Destroy(popUp.gameObject.GetComponent<Collider2D>());
 		}
 
 		if(collision.gameObject.tag == "MovingPlatform"){
@@ -109,15 +109,15 @@ public class NanitoControllerScript : MonoBehaviour {
 		}
 
 		if (collision.gameObject.tag == "Boss") {
-			boss.gameObject.renderer.enabled = true;
-
 			showPopUp = true;
 			maxSpeed = 0;
+			anim.enabled = false;
 
 			if (i == 5) {
-				maxSpeed = 25;
-				Destroy(boss.gameObject.collider2D);
-				boss.gameObject.renderer.enabled = false;
+				maxSpeed = 30;
+				anim.enabled = true;
+				Destroy(boss.gameObject.GetComponent<Collider2D>());
+				boss.gameObject.GetComponent<Renderer>().enabled = false;
 
 			}
 		}
@@ -126,18 +126,28 @@ public class NanitoControllerScript : MonoBehaviour {
 			Application.LoadLevel("Hidrofobia");
 		}
 
+		if (collision.gameObject.tag == "shield") {
+			ShieldCounterManager.AddShield(shield.shieldNumber);
+			Destroy(shield.gameObject);
+		}
+
+		if (collision.gameObject.tag == "ffbottle") {
+			FfCounterManager.AddFF(ffBottle.ffNumber);
+			Destroy(ffBottle.gameObject);
+		}
+
 	}
 
 	void Update(){
  		if((grounded || !doubleJump) && Input.GetButtonDown("Jump")){ 
 			anim.SetBool("Ground", false);
 			this.transform.parent = null;
-			rigidbody2D.AddForce(new Vector2(0, jumpForce));
+			GetComponent<Rigidbody2D>().AddForce(new Vector2(0, jumpForce));
 
 		if(!doubleJump && !grounded)
 			doubleJump = true;
 			this.transform.parent = null;
-			rigidbody2D.AddForce(new Vector2(0, jumpForce/2));
+			GetComponent<Rigidbody2D>().AddForce(new Vector2(0, jumpForce/2));
 		}
 	}
 	
@@ -167,8 +177,7 @@ public class NanitoControllerScript : MonoBehaviour {
 	{		
 		//show window if you touched collider
 		if (showPopUp == true) {
-			GUI.Window (0, new Rect ((Screen.width / 2) - 350, (Screen.height / 2) - 130, 300, 250), ShowGUI, "BOSS FIGHT");
-			GUI.DrawTexture (new Rect ((Screen.width / 2) - 350, (Screen.height / 2) - 130, 300, 250), background);
+			GUI.Window (0, new Rect ((Screen.width / 2) - 150, (Screen.height / 2) - 130, 300, 250), ShowGUI, "BOSS FIGHT");
 		}
 	}
 
@@ -177,9 +186,12 @@ public class NanitoControllerScript : MonoBehaviour {
 		bool damagePlayer = false;
 		HealthScript playerHealth = this.GetComponent<HealthScript> ();
 
+		GUI.backgroundColor = Color.black;
+		GUI.contentColor = Color.green;
+		
 		if  (i == 0) {
-			
-			GUI.Label (new Rect (65, 40, 200, 500),  "¿A que se debe la forma peculiar de un ferrofluido?\n [A] Las lineas del campo magnetico\n [B] Gravedad\n [C] Temperatura\n");
+		
+			GUI.Label (new Rect (65, 40, 200, 500),  "Are you hungry?\n [A] Yes\n [B] No\n [C] I don\'t know\n");
 			if (GUI.Button (new Rect (50, 150, 40, 30), "A")) {
 				correct_answer = 1;
 				i++;
@@ -214,7 +226,7 @@ public class NanitoControllerScript : MonoBehaviour {
 		
 		if (i == 1) {
 			showPopUp = true;
-			GUI.Label (new Rect (65, 40, 200, 500), "¿Que es un ferrofluido?\n [A] Un liquido que no se polariza en un campo magnetico\n [B] Un liquido que repele el agua\n [C] Un liquido que se polariza en un campo magnetico\n");
+			GUI.Label (new Rect (65, 40, 200, 500), "Do you want to eat?\n [A] Yes\n [B] No\n [C] I don\'t know\n");
 			if (GUI.Button (new Rect (50, 150, 40, 30), "A")) {
 				correct_answer = 0;
 				clicks++;
@@ -248,7 +260,7 @@ public class NanitoControllerScript : MonoBehaviour {
 		}
 		
 		if (i == 2) {
-			GUI.Label (new Rect (65, 40, 200, 500), "¿Como los ferrofluidos ayudan a combatir el cancer?\n [A] Los ferrofluidos no son capaces de combatir el cancer\n [B] Quimeoterapia usando ferrofluidos\n [C] Utilizando una tecnica llamada cocinar el tumor\n");
+			GUI.Label (new Rect (65, 40, 200, 500), "Do you want to take a nap?\n [A] Yes\n [B] No\n [C] I don\'t know\n");
 			if (GUI.Button (new Rect (50, 150, 40, 30), "A")) {
 				correct_answer = 0;
 				clicks++;
@@ -280,8 +292,9 @@ public class NanitoControllerScript : MonoBehaviour {
 				i++;
 			}
 		}
+		
 		if (i == 3) {
-			GUI.Label (new Rect (65, 40, 200, 500), "¿Que le pasa a un iman y un metal si se le aplica ferrofluido?\n [A] Aumenta la friccion\n [B] Disminuye la friccion\n [C] Se queda igual\n");
+			GUI.Label (new Rect (65, 40, 200, 500), "Are you sleepy?\n [A] Yes\n [B] No\n [C] I don\'t know\n");
 			if (GUI.Button (new Rect (50, 150, 40, 30), "A")) {
 				correct_answer = 0;
 				clicks++;
@@ -315,7 +328,7 @@ public class NanitoControllerScript : MonoBehaviour {
 		}
 		
 		if (i == 4) {
-			GUI.Label (new Rect (65, 40, 200, 500), "¿En que parte de los robots se utiliza ferrofluidos?\n [A] La cabeza\n [B] Las coyunturas\n [C] El cuello\n");
+			GUI.Label (new Rect (65, 40, 200, 500), "Are you alive?\n [A] Yes\n [B] No\n [C] I don\'t know\n");
 			if (GUI.Button (new Rect (50, 150, 40, 30), "A")) {
 				correct_answer = 0;
 				clicks++;
@@ -350,7 +363,7 @@ public class NanitoControllerScript : MonoBehaviour {
 		
 		if (i == 5) {
 			showPopUp = false;
-			
+
 		}
 		
 		

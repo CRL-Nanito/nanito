@@ -3,7 +3,7 @@ using System.Collections;
 
 public class PopUpScript : MonoBehaviour {
 	public bool showPopUp = false;
-	public Texture2D background;
+
 
 	void OnTriggerEnter(Collider2D otherObject){
 		
@@ -16,12 +16,11 @@ public class PopUpScript : MonoBehaviour {
 
 	void OnGUI()
 	{		//show window if you touched collider
-		if (showPopUp == true) {
-			GUI.Window (0, new Rect ((Screen.width / 2) - 150, (Screen.height / 2) - 130, 300, 250), ShowGUI, "Dato curioso");
-			GUI.DrawTexture (new Rect ((Screen.width / 2) - 150, (Screen.height / 2) - 130, 300, 250), background);
-			Time.timeScale=0;
+				if (showPopUp == true) {
+				GUI.Window (0, new Rect ((Screen.width / 2) - 150, (Screen.height / 2) - 130, 300, 250), ShowGUI, "Dato Curioso");
+				Time.timeScale=0;
+				}
 		}
-	}
 	
 	void ShowGUI(int windowID)
 		{
@@ -38,9 +37,9 @@ public class PopUpScript : MonoBehaviour {
 			} else
 			if (this.gameObject.tag == "Atomo2") {
 				GUI.Label (new Rect (65, 40, 200, 550), "Para combatir el cáncer  utilizando ferrofluidos " +
-			           "se inyectan las nanopartículas al cuerpo. Una vez " +
-			           "llegan al tumor, se utiliza un campo magnético " +
-			           "alterno para que las partículas roten y generen calor, y así 'cocinar' el tumor.");
+			           "se inyectan las nanopartículas  al cuerpo, una vez " +
+			           "lleguen al tumor se  ponen un campo magnético " +
+			           "alterno para que las partículas roten y generen calor así se puede 'cocinar' el tumor.");
 			}else
 			if (this.gameObject.tag == "Atomo3") {
 				GUI.Label (new Rect (65, 40, 200, 550), "La fricción entre un imán y un metal se puede reducir " +

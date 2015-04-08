@@ -52,10 +52,10 @@ public class Camera2DFollow : MonoBehaviour {
 				
 			}
 			
-			var cameraHalfWidth = camera.orthographicSize * ((float)Screen.width / Screen.height);
+			var cameraHalfWidth = GetComponent<Camera>().orthographicSize * ((float)Screen.width / Screen.height);
 			
 			x = Mathf.Clamp (x, _min.x + cameraHalfWidth, _max.x - cameraHalfWidth);
-			y = Mathf.Clamp (y, _min.y + camera.orthographicSize, _max.y - camera.orthographicSize);
+			y = Mathf.Clamp (y, _min.y + GetComponent<Camera>().orthographicSize, _max.y - GetComponent<Camera>().orthographicSize);
 			
 			transform.position = new Vector3 (x, y, transform.position.z);
 		} 
@@ -72,10 +72,10 @@ public class Camera2DFollow : MonoBehaviour {
 				
 			}
 			
-			var cameraHalfWidth = camera.orthographicSize * ((float)Screen.width / Screen.height);
+			var cameraHalfWidth = GetComponent<Camera>().orthographicSize * ((float)Screen.width / Screen.height);
 			
 			x = Mathf.Clamp (x, _min.x + cameraHalfWidth, _max.x - cameraHalfWidth);
-			y = Mathf.Clamp (y, _min.y + camera.orthographicSize, _max.y - camera.orthographicSize);
+			y = Mathf.Clamp (y, _min.y + GetComponent<Camera>().orthographicSize, _max.y - GetComponent<Camera>().orthographicSize);
 			
 			transform.position = new Vector3 (x, y, transform.position.z);
 		}

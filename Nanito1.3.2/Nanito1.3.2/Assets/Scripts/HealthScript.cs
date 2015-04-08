@@ -30,11 +30,11 @@ public class HealthScript : MonoBehaviour {
 
 	IEnumerator Dead() {
 		Debug.Log ("dead");
-		renderer.enabled = false;
+		GetComponent<Renderer>().enabled = false;
 		yield return new WaitForSeconds(1);
 		transform.position = new Vector2 (-284.7662f, -8.521203f);
 		Debug.Log ("respawn");
-		renderer.enabled = true;
+		GetComponent<Renderer>().enabled = true;
 		hp = maxhp;					//cambio
 		
 	}

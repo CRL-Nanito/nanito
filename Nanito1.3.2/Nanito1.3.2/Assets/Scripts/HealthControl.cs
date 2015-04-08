@@ -24,51 +24,51 @@ public class HealthControl : MonoBehaviour {
 		switch (HealthScript.hp) {
 			
 		case 12:
-			guiTexture.texture = hearts3_100;
+			GetComponent<GUITexture>().texture = hearts3_100;
 			break;
 			
 		case 11:
-			guiTexture.texture = hearts2_75;	
+			GetComponent<GUITexture>().texture = hearts2_75;	
 			break;
 			
 		case 10:
-			guiTexture.texture = hearts3_50;
+			GetComponent<GUITexture>().texture = hearts3_50;
 			break;
 
 		case 9:
-			guiTexture.texture = hearts3_25;
+			GetComponent<GUITexture>().texture = hearts3_25;
 			break;
 			
 		case 8:
-			guiTexture.texture = hearts2_100;	
+			GetComponent<GUITexture>().texture = hearts2_100;	
 			break;
 			
 		case 7:
-			guiTexture.texture = hearts2_75;
+			GetComponent<GUITexture>().texture = hearts2_75;
 			break;
 		
 		case 6:
-			guiTexture.texture = hearts2_50;
+			GetComponent<GUITexture>().texture = hearts2_50;
 			break;
 			
 		case 5:
-			guiTexture.texture = hearts2_25;	
+			GetComponent<GUITexture>().texture = hearts2_25;	
 			break;
 			
 		case 4:
-			guiTexture.texture = hearts1_100;
+			GetComponent<GUITexture>().texture = hearts1_100;
 			break;
 		
 		case 3:
-			guiTexture.texture = hearts1_75;
+			GetComponent<GUITexture>().texture = hearts1_75;
 			break;
 			
 		case 2:
-			guiTexture.texture = hearts1_50;	
+			GetComponent<GUITexture>().texture = hearts1_50;	
 			break;
 			
 		case 1:
-			guiTexture.texture = hearts1_25;
+			GetComponent<GUITexture>().texture = hearts1_25;
 			break;
 
 		case 0:

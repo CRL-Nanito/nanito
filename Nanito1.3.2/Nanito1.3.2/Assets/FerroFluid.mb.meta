@@ -1,0 +1,333 @@
+fileFormatVersion: 2
+guid: b6510086b6793d14082983eb6ac63953
+timeCreated: 1429078280
+licenseType: Free
+ModelImporter:
+  serializedVersion: 18
+  fileIDToRecycleName:
+    100000: //RootNode
+    100002: group
+    100004: group1
+    100006: pasted__group
+    100008: pasted__pasted__pCone10
+    100010: pasted__pasted__pCone11
+    100012: pasted__pasted__pCone12
+    100014: pasted__pasted__pCone4
+    100016: pasted__pasted__pCone6
+    100018: pasted__pasted__pCone9
+    100020: pasted__pCone1
+    100022: pasted__pCone10
+    100024: pasted__pCone11
+    100026: pasted__pCone12
+    100028: pasted__pCone2
+    100030: pasted__pCone3
+    100032: pasted__pCone4
+    100034: pasted__pCone5
+    100036: pasted__pCone6
+    100038: pasted__pCone7
+    100040: pasted__pCone8
+    100042: pasted__pCone9
+    100044: pCone1
+    100046: pCone10
+    100048: pCone11
+    100050: pCone12
+    100052: pCone13
+    100054: pCone14
+    100056: pCone2
+    100058: pCone3
+    100060: pCone4
+    100062: pCone5
+    100064: pCone6
+    100066: pCone7
+    100068: pCone8
+    100070: pCone9
+    400000: //RootNode
+    400002: group
+    400004: group1
+    400006: pasted__group
+    400008: pasted__pasted__pCone10
+    400010: pasted__pasted__pCone11
+    400012: pasted__pasted__pCone12
+    400014: pasted__pasted__pCone4
+    400016: pasted__pasted__pCone6
+    400018: pasted__pasted__pCone9
+    400020: pasted__pCone1
+    400022: pasted__pCone10
+    400024: pasted__pCone11
+    400026: pasted__pCone12
+    400028: pasted__pCone2
+    400030: pasted__pCone3
+    400032: pasted__pCone4
+    400034: pasted__pCone5
+    400036: pasted__pCone6
+    400038: pasted__pCone7
+    400040: pasted__pCone8
+    400042: pasted__pCone9
+    400044: pCone1
+    400046: pCone10
+    400048: pCone11
+    400050: pCone12
+    400052: pCone13
+    400054: pCone14
+    400056: pCone2
+    400058: pCone3
+    400060: pCone4
+    400062: pCone5
+    400064: pCone6
+    400066: pCone7
+    400068: pCone8
+    400070: pCone9
+    2300000: pasted__pasted__pCone10
+    2300002: pasted__pasted__pCone11
+    2300004: pasted__pasted__pCone12
+    2300006: pasted__pasted__pCone4
+    2300008: pasted__pasted__pCone6
+    2300010: pasted__pasted__pCone9
+    2300012: pasted__pCone1
+    2300014: pasted__pCone10
+    2300016: pasted__pCone11
+    2300018: pasted__pCone12
+    2300020: pasted__pCone2
+    2300022: pasted__pCone3
+    2300024: pasted__pCone4
+    2300026: pasted__pCone5
+    2300028: pasted__pCone6
+    2300030: pasted__pCone7
+    2300032: pasted__pCone8
+    2300034: pasted__pCone9
+    2300036: pCone1
+    2300038: pCone10
+    2300040: pCone11
+    2300042: pCone12
+    2300044: pCone13
+    2300046: pCone14
+    2300048: pCone2
+    2300050: pCone3
+    2300052: pCone4
+    2300054: pCone5
+    2300056: pCone6
+    2300058: pCone7
+    2300060: pCone8
+    2300062: pCone9
+    3300000: pasted__pasted__pCone10
+    3300002: pasted__pasted__pCone11
+    3300004: pasted__pasted__pCone12
+    3300006: pasted__pasted__pCone4
+    3300008: pasted__pasted__pCone6
+    3300010: pasted__pasted__pCone9
+    3300012: pasted__pCone1
+    3300014: pasted__pCone10
+    3300016: pasted__pCone11
+    3300018: pasted__pCone12
+    3300020: pasted__pCone2
+    3300022: pasted__pCone3
+    3300024: pasted__pCone4
+    3300026: pasted__pCone5
+    3300028: pasted__pCone6
+    3300030: pasted__pCone7
+    3300032: pasted__pCone8
+    3300034: pasted__pCone9
+    3300036: pCone1
+    3300038: pCone10
+    3300040: pCone11
+    3300042: pCone12
+    3300044: pCone13
+    3300046: pCone14
+    3300048: pCone2
+    3300050: pCone3
+    3300052: pCone4
+    3300054: pCone5
+    3300056: pCone6
+    3300058: pCone7
+    3300060: pCone8
+    3300062: pCone9
+    4300000: pCone5
+    4300002: pCone1
+    4300004: pCone7
+    4300006: pCone3
+    4300008: pCone8
+    4300010: pCone2
+    4300012: pCone10
+    4300014: pCone6
+    4300016: pCone11
+    4300018: pCone9
+    4300020: pCone4
+    4300022: pasted__pCone7
+    4300024: pasted__pCone2
+    4300026: pasted__pCone3
+    4300028: pCone13
+    4300030: pCone12
+    4300032: pasted__pasted__pCone10
+    4300034: pasted__pCone1
+    4300036: pasted__pCone5
+    4300038: pasted__pasted__pCone9
+    4300040: pasted__pasted__pCone11
+    4300042: pasted__pasted__pCone6
+    4300044: pasted__pCone6
+    4300046: pasted__pasted__pCone12
+    4300048: pasted__pCone8
+    4300050: pasted__pCone4
+    4300052: pasted__pCone10
+    4300054: pasted__pCone11
+    4300056: pCone14
+    4300058: pasted__pCone9
+    4300060: pasted__pCone12
+    4300062: pasted__pasted__pCone4
+    7400000: Take 001
+    9500000: //RootNode
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationCompression: 1
+    animationRotationError: .5
+    animationPositionError: .5
+    animationScaleError: .5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: Take 001
+      takeName: Take 001
+      firstFrame: 1
+      lastFrame: 250
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: group
+        weight: 1
+      - path: group/pasted__pCone2
+        weight: 1
+      - path: group/pasted__pCone3
+        weight: 1
+      - path: group/pasted__pCone3/pasted__pasted__pCone10
+        weight: 1
+      - path: group/pasted__pCone3/pasted__pCone1
+        weight: 1
+      - path: group/pasted__pCone3/pCone12
+        weight: 1
+      - path: group/pasted__pCone3/pCone13
+        weight: 1
+      - path: group/pasted__pCone5
+        weight: 1
+      - path: group/pasted__pCone5/pasted__pasted__pCone6
+        weight: 1
+      - path: group/pasted__pCone5/pasted__pasted__pCone9
+        weight: 1
+      - path: group/pasted__pCone5/pasted__pasted__pCone11
+        weight: 1
+      - path: group/pasted__pCone5/pasted__pCone6
+        weight: 1
+      - path: group/pasted__pCone5/pasted__pCone6/pasted__pasted__pCone12
+        weight: 1
+      - path: group/pasted__pCone5/pasted__pCone6/pasted__pCone4
+        weight: 1
+      - path: group/pasted__pCone5/pasted__pCone6/pasted__pCone8
+        weight: 1
+      - path: group/pasted__pCone10
+        weight: 1
+      - path: group/pasted__pCone10/pasted__pCone9
+        weight: 1
+      - path: group/pasted__pCone10/pasted__pCone11
+        weight: 1
+      - path: group/pasted__pCone10/pasted__pCone12
+        weight: 1
+      - path: group/pasted__pCone10/pCone14
+        weight: 1
+      - path: group1
+        weight: 1
+      - path: group1/pasted__group
+        weight: 1
+      - path: group1/pasted__group/pasted__pasted__pCone4
+        weight: 1
+      - path: pCone5
+        weight: 1
+      - path: pCone5/pCone1
+        weight: 1
+      - path: pCone5/pCone2
+        weight: 1
+      - path: pCone5/pCone3
+        weight: 1
+      - path: pCone5/pCone7
+        weight: 1
+      - path: pCone5/pCone8
+        weight: 1
+      - path: pCone10
+        weight: 1
+      - path: pCone10/pasted__pCone7
+        weight: 1
+      - path: pCone10/pCone4
+        weight: 1
+      - path: pCone10/pCone6
+        weight: 1
+      - path: pCone10/pCone9
+        weight: 1
+      - path: pCone10/pCone11
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    splitTangentsAcrossUV: 1
+    normalImportMode: 0
+    tangentImportMode: 1
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: .5
+    foreArmTwist: .5
+    upperLegTwist: .5
+    legTwist: .5
+    armStretch: .0500000007
+    legStretch: .0500000007
+    feetSpacing: 0
+    rootMotionBoneName: 
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

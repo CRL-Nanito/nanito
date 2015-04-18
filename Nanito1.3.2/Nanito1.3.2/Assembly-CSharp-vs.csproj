@@ -47,6 +47,7 @@
   </ItemGroup>
   <ItemGroup>
      <Compile Include="Assets\Scripts\BackgroundScroller.cs" />
+     <Compile Include="Assets\Scripts\BlinkingPlatforms.cs" />
      <Compile Include="Assets\Scripts\BossFight.cs" />
      <Compile Include="Assets\Scripts\Camera2DFollow.cs" />
      <Compile Include="Assets\Scripts\CameraRunnerScript.cs" />
@@ -54,6 +55,8 @@
      <Compile Include="Assets\Scripts\CharacterChange.cs" />
      <Compile Include="Assets\Scripts\CharacterSelection.cs" />
      <Compile Include="Assets\Scripts\FerrofluidScript.cs" />
+     <Compile Include="Assets\Scripts\FfCounterManager.cs" />
+     <Compile Include="Assets\Scripts\FfScript.cs" />
      <Compile Include="Assets\Scripts\FloorScript.cs" />
      <Compile Include="Assets\Scripts\HealthControl.cs" />
      <Compile Include="Assets\Scripts\HealthScript.cs" />
@@ -62,6 +65,8 @@
      <Compile Include="Assets\Scripts\PlayerSpawn.cs" />
      <Compile Include="Assets\Scripts\PopUpScript.cs" />
      <Compile Include="Assets\Scripts\RunHankey.cs" />
+     <Compile Include="Assets\Scripts\ShieldCounterManager.cs" />
+     <Compile Include="Assets\Scripts\ShieldScript.cs" />
  <Reference Include="UnityEngine.UI">
  <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
  </Reference>

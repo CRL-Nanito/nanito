@@ -36,8 +36,12 @@ public class ChangeScene : MonoBehaviour {
 		}
 	}
 
-	public void ChangeToScene () {
-		Application.LoadLevel ("nano");
+	public void ChangeToScene (int gameSelected) {
+		if (gameSelected == 0) {
+			Application.LoadLevel ("nano");
+		} else if (gameSelected == 1) {
+			Application.LoadLevel ("hidrofobia");
+		}
 //		DontDestroyOnLoad (characterSelected);
 		DontDestroyOnLoad (manager);
 	}

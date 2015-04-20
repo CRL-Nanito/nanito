@@ -14,10 +14,12 @@ public class CharacterChange : MonoBehaviour {
 		if (characterSelected == 1) {
 			nanito.gameObject.SetActive(true);
 			nanita.gameObject.SetActive(false);
+			Application.LoadLevel ("LevelSelect");
 		} 
 		else {
 			nanito.gameObject.SetActive(false);
 			nanita.gameObject.SetActive(true);
+			Application.LoadLevel ("LevelSelect");
 		}
 	}
 

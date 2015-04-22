@@ -9,7 +9,10 @@ public class NanitoControllerScript : MonoBehaviour {
 
 	Animator anim;
 
+	int wingsCounter = 0;
 	bool grounded = false;
+	bool shield1 = false;
+	public GameObject shieldGO;
 	public Transform groundCheck;
 	float groundRadius = 0.2f;
 	public LayerMask whatIsGround;
@@ -78,6 +81,7 @@ public class NanitoControllerScript : MonoBehaviour {
 		BossFight boss = collision.gameObject.GetComponent<BossFight> ();
 		ShieldScript shield = collision.gameObject.GetComponent<ShieldScript>();
 		FfScript ffBottle = collision.gameObject.GetComponent<FfScript>();
+		WingsCounter wings = collision.gameObject.GetComponent<WingsCounter>();
 
 		if (goo != null) {
 			damagePlayer = true;
@@ -108,6 +112,7 @@ public class NanitoControllerScript : MonoBehaviour {
 			this.transform.parent = collision.transform;
 		}
 
+
 		if (collision.gameObject.tag == "Boss") {
 			showPopUp = true;
 			maxSpeed = 0;
@@ -125,10 +130,18 @@ public class NanitoControllerScript : MonoBehaviour {
 		if (collision.gameObject.tag == "Door") {
 			Application.LoadLevel("Hidrofobia");
 		}
+		if (wings != null) {
+			wings.GetComponent<Renderer>().enabled = false;
+			wings.GetComponent<PolygonCollider2D>().enabled = false;
+
+			wingsCounter = 7;
+		}
 
 		if (collision.gameObject.tag == "shield") {
 			ShieldCounterManager.AddShield(shield.shieldNumber);
 			Destroy(shield.gameObject);
+			shield1 = true;
+			Debug.Log("Shield available");
 		}
 
 		if (collision.gameObject.tag == "ffbottle") {
@@ -140,11 +153,30 @@ public class NanitoControllerScript : MonoBehaviour {
 
 	void Update(){
  		if((grounded || !doubleJump) && Input.GetButtonDown("Jump")){ 
+			if(wingsCounter > 0){
+				anim.SetBool("Ground", false);
+				this.transform.parent = null;
+				GetComponent<Rigidbody2D>().AddForce(new Vector2(0, 1600));
+				wingsCounter--;
+			}
+			else{
 			anim.SetBool("Ground", false);
 			this.transform.parent = null;
 			GetComponent<Rigidbody2D>().AddForce(new Vector2(0, jumpForce));
+			}
 
+			if(shield1 == true && Input.GetButtonDown("Shield")){
+				shieldGO.SetActive(true);
+				Debug.Log("shield me bitch");
+				StartCoroutine(ShieldDelay());
+				Debug.Log("bye shield");
+			}
 		if(!doubleJump && !grounded)
+			if(wingsCounter > 0){
+				doubleJump = true;
+				this.transform.parent = null;
+				GetComponent<Rigidbody2D>().AddForce(new Vector2(0, 1600/2));
+			}
 			doubleJump = true;
 			this.transform.parent = null;
 			GetComponent<Rigidbody2D>().AddForce(new Vector2(0, jumpForce/2));
@@ -158,6 +190,11 @@ public class NanitoControllerScript : MonoBehaviour {
 		Vector3 theScale = transform.localScale;
 		theScale.x *= -1;
 		transform.localScale = theScale;
+	}
+
+	IEnumerator ShieldDelay(){
+		yield return new WaitForSeconds (3);
+		shieldGO.SetActive(false);
 	}
 
 	void OnCollisionExit2D(Collider2D collision){

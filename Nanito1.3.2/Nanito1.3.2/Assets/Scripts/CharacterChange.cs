@@ -15,6 +15,7 @@ public class CharacterChange : MonoBehaviour {
 			nanito.gameObject.SetActive(true);
 			nanita.gameObject.SetActive(false);
 			Application.LoadLevel ("LevelSelect");
+
 		} 
 		else {
 			nanito.gameObject.SetActive(false);

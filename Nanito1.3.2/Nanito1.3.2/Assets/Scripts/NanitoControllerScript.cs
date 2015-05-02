@@ -9,14 +9,15 @@ public class NanitoControllerScript : MonoBehaviour {
 
 	Animator anim;
 
+	float wingsFactor = 200f;
 	int wingsCounter = 0;
 	bool grounded = false;
-	bool shield1 = false;
+	bool shieldFlag = false;
 	public GameObject shieldGO;
 	public Transform groundCheck;
 	float groundRadius = 0.2f;
 	public LayerMask whatIsGround;
-	public float jumpForce = 1500f;
+	public float jumpForce = 1600f;
 
 	bool doubleJump = false;
 
@@ -140,7 +141,7 @@ public class NanitoControllerScript : MonoBehaviour {
 		if (collision.gameObject.tag == "shield") {
 			ShieldCounterManager.AddShield(shield.shieldNumber);
 			Destroy(shield.gameObject);
-			shield1 = true;
+			shieldFlag = true;
 			Debug.Log("Shield available");
 		}
 
@@ -152,34 +153,37 @@ public class NanitoControllerScript : MonoBehaviour {
 	}
 
 	void Update(){
- 		if((grounded || !doubleJump) && Input.GetButtonDown("Jump")){ 
-			if(wingsCounter > 0){
-				anim.SetBool("Ground", false);
-				this.transform.parent = null;
-				GetComponent<Rigidbody2D>().AddForce(new Vector2(0, 1600));
+		// si brinco desde el piso o desde el primer brinco
+		if ((grounded || !doubleJump) && Input.GetButtonDown ("Jump")) {
+			
+			//BRETTY GOOD, EH?
+			anim.SetBool ("Ground", false);
+			this.transform.parent = null;
+			float newJumpForce = jumpForce;
+			
+			//UPDATE WINGS COUNTER ACCORDING TO DOUBLE JUMP OR WINGS COUNTER
+			if (wingsCounter > 0) {
+				newJumpForce += wingsFactor;
 				wingsCounter--;
 			}
-			else{
-			anim.SetBool("Ground", false);
-			this.transform.parent = null;
-			GetComponent<Rigidbody2D>().AddForce(new Vector2(0, jumpForce));
-			}
-
-			if(shield1 == true && Input.GetButtonDown("Shield")){
-				shieldGO.SetActive(true);
-				Debug.Log("shield me bitch");
-				StartCoroutine(ShieldDelay());
-				Debug.Log("bye shield");
-			}
-		if(!doubleJump && !grounded)
-			if(wingsCounter > 0){
+			if (!doubleJump && !grounded) {
+				newJumpForce /= 2;
 				doubleJump = true;
-				this.transform.parent = null;
-				GetComponent<Rigidbody2D>().AddForce(new Vector2(0, 1600/2));
 			}
-			doubleJump = true;
-			this.transform.parent = null;
-			GetComponent<Rigidbody2D>().AddForce(new Vector2(0, jumpForce/2));
+			
+			GetComponent<Rigidbody2D> ().AddForce (new Vector2 (0, newJumpForce));
+		}
+		//activate shield
+		if (shieldFlag == true && Input.GetButtonDown ("Shield")) {
+			shieldGO.SetActive (true);
+			ShieldCounterManager.shieldScore--;
+			Debug.Log ("shield me bitch");
+			StartCoroutine (ShieldDelay ());
+			Debug.Log ("bye shield");
+
+			if (shieldFlag == true && ShieldCounterManager.shieldScore == 0) {
+				shieldFlag = false;
+			}
 		}
 	}
 	
@@ -197,7 +201,7 @@ public class NanitoControllerScript : MonoBehaviour {
 		shieldGO.SetActive(false);
 	}
 
-	void OnCollisionExit2D(Collider2D collision){
+	void OnCollisionExit2D(Collision2D collision){
 		if (collision.gameObject.tag == "MovingPlatform"){
 			this.transform.parent = null;
 		}

@@ -15,7 +15,7 @@ public class BlinkingPlatforms : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		time += Time.deltaTime;
-		Debug.Log (time);
+		//Debug.Log (time);
 		if (time >= 5 / velocity) {
 			spriteRenderer.enabled = true;
 			collider.enabled = true;

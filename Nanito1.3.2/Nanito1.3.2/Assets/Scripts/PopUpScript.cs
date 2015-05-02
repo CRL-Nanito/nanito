@@ -5,7 +5,7 @@ public class PopUpScript : MonoBehaviour {
 	public bool showPopUp = false;
 
 
-	void OnTriggerEnter(Collider2D otherObject){
+	void OnTriggerEnter2D(Collider2D otherObject){
 		
 		if(otherObject.tag == "Player") {
 			showPopUp = true;

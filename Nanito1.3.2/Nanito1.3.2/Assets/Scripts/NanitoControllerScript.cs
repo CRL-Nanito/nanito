@@ -9,7 +9,7 @@ public class NanitoControllerScript : MonoBehaviour {
 
 	Animator anim;
 
-	float wingsFactor = 200f;
+	float wingsFactor = 600f;
 	int wingsCounter = 0;
 	bool grounded = false;
 	bool shieldFlag = false;
@@ -17,7 +17,7 @@ public class NanitoControllerScript : MonoBehaviour {
 	public Transform groundCheck;
 	float groundRadius = 0.2f;
 	public LayerMask whatIsGround;
-	public float jumpForce = 1600f;
+	public float jumpForce = 1500f;
 
 	bool doubleJump = false;
 

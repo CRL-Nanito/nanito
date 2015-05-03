@@ -228,7 +228,7 @@ public class NanitoControllerScript : MonoBehaviour {
 		
 		if  (i == 0) {
 		
-			GUI.Label (new Rect (65, 40, 200, 500),  "Are you hungry?\n [A] Yes\n [B] No\n [C] I don\'t know\n");
+			GUI.Label (new Rect (65, 40, 200, 500),  "Are youuuu hungry?\n [A] Yes\n [B] No\n [C] I don\'t know\n");
 			if (GUI.Button (new Rect (50, 150, 40, 30), "A")) {
 				correct_answer = 1;
 				i++;

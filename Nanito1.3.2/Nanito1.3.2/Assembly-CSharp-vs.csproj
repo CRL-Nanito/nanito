@@ -46,7 +46,6 @@
 	</Reference>
   </ItemGroup>
   <ItemGroup>
-     <Compile Include="Assets\Gun.cs" />
      <Compile Include="Assets\Scripts\BackgroundScroller.cs" />
      <Compile Include="Assets\Scripts\BlinkingPlatforms.cs" />
      <Compile Include="Assets\Scripts\BossFight.cs" />
@@ -59,6 +58,7 @@
      <Compile Include="Assets\Scripts\FfCounterManager.cs" />
      <Compile Include="Assets\Scripts\FfScript.cs" />
      <Compile Include="Assets\Scripts\FloorScript.cs" />
+     <Compile Include="Assets\Scripts\Gun.cs" />
      <Compile Include="Assets\Scripts\HealthControl.cs" />
      <Compile Include="Assets\Scripts\HealthScript.cs" />
      <Compile Include="Assets\Scripts\MovingPlatformScript.cs" />
@@ -68,7 +68,7 @@
      <Compile Include="Assets\Scripts\RunHankey.cs" />
      <Compile Include="Assets\Scripts\ShieldCounterManager.cs" />
      <Compile Include="Assets\Scripts\ShieldScript.cs" />
-     <Compile Include="Assets\WingsCounter.cs" />
+     <Compile Include="Assets\Scripts\WingsCounter.cs" />
  <Reference Include="UnityEngine.UI">
  <HintPath>/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
  </Reference>

@@ -13,7 +13,9 @@ public class NanitoControllerScript : MonoBehaviour {
 	int wingsCounter = 0;
 	bool grounded = false;
 	bool shieldFlag = false;
+
 	public GameObject shieldGO;
+
 	public Transform groundCheck;
 	float groundRadius = 0.2f;
 	public LayerMask whatIsGround;
@@ -145,6 +147,7 @@ public class NanitoControllerScript : MonoBehaviour {
 			Debug.Log("Shield available");
 		}
 
+
 		if (collision.gameObject.tag == "ffbottle") {
 			FfCounterManager.AddFF(ffBottle.ffNumber);
 			Destroy(ffBottle.gameObject);
@@ -185,6 +188,7 @@ public class NanitoControllerScript : MonoBehaviour {
 				shieldFlag = false;
 			}
 		}
+
 	}
 	
 

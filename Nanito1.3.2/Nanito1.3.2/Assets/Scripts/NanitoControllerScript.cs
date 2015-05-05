@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 using System.Collections;
 
 public class NanitoControllerScript : MonoBehaviour {
@@ -22,6 +22,8 @@ public class NanitoControllerScript : MonoBehaviour {
 	public float jumpForce = 1500f;
 
 	bool doubleJump = false;
+	private int time;
+	private Time timer;
 
 	// Use this for initialization
 	void Start () {
@@ -136,7 +138,6 @@ public class NanitoControllerScript : MonoBehaviour {
 		if (wings != null) {
 			wings.GetComponent<Renderer>().enabled = false;
 			wings.GetComponent<PolygonCollider2D>().enabled = false;
-
 			wingsCounter = 7;
 		}
 
@@ -151,6 +152,17 @@ public class NanitoControllerScript : MonoBehaviour {
 		if (collision.gameObject.tag == "ffbottle") {
 			FfCounterManager.AddFF(ffBottle.ffNumber);
 			Destroy(ffBottle.gameObject);
+		}
+
+		//platform activator
+		if (collision.gameObject.tag == "ActivatePlatform") {
+			collision.gameObject.GetComponent<Animator>().enabled = true;
+		}
+
+		if (collision.gameObject.tag == "Boots") {
+			collision.gameObject.GetComponent<Renderer>().enabled = false;
+			collision.gameObject.GetComponent<PolygonCollider2D>().enabled = false;
+			time = 5;
 		}
 
 	}
@@ -191,6 +203,7 @@ public class NanitoControllerScript : MonoBehaviour {
 
 	}
 	
+
 
 	//Flip world 180
 	void Flip() {

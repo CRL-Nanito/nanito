@@ -165,6 +165,14 @@ public class NanitoControllerScript : MonoBehaviour {
 			time = 5;
 		}
 
+		if (collision.gameObject.tag == "box") {
+			bool founded = false;
+			BoxController box = collision.gameObject.GetComponent<BoxController>();
+			box.Founded(true);
+			Destroy(collision.gameObject);
+		}
+
+
 	}
 
 	void Update(){

@@ -28,7 +28,7 @@ public class HealthControl : MonoBehaviour {
 			break;
 			
 		case 11:
-			GetComponent<GUITexture>().texture = hearts2_75;	
+			GetComponent<GUITexture>().texture = hearts3_75;	
 			break;
 			
 		case 10:

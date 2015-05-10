@@ -3,7 +3,7 @@ using System.Collections;
 
 public class PopUpScript : MonoBehaviour {
 	public bool showPopUp = false;
-
+	public Texture2D background;
 
 	void OnTriggerEnter2D(Collider2D otherObject){
 		
@@ -18,6 +18,7 @@ public class PopUpScript : MonoBehaviour {
 	{		//show window if you touched collider
 				if (showPopUp == true) {
 				GUI.Window (0, new Rect ((Screen.width / 2) - 150, (Screen.height / 2) - 130, 300, 250), ShowGUI, "Dato Curioso");
+				GUI.DrawTexture (new Rect ((Screen.width / 2) - 150, (Screen.height / 2) - 130, 300, 250), background);
 				Time.timeScale=0;
 				}
 		}
@@ -32,7 +33,7 @@ public class PopUpScript : MonoBehaviour {
 			           "las líneas de campo magnético.");
 			} else 
 			if (this.gameObject.tag == "Atomo1") {
-				GUI.Label (new Rect (65, 40, 200, 550), "Un ferrofluido es" +
+				GUI.Label (new Rect (65, 40, 200, 550), "Un ferrofluido es " +
 			           "un líquido que se polariza en presencia de un campo magnético.");
 			} else
 			if (this.gameObject.tag == "Atomo2") {
@@ -43,14 +44,12 @@ public class PopUpScript : MonoBehaviour {
 			}else
 			if (this.gameObject.tag == "Atomo3") {
 				GUI.Label (new Rect (65, 40, 200, 550), "La fricción entre un imán y un metal se puede reducir " +
-				       "si se le aplica ferrofluido a un imán de gran potencia el imán podra deslizarse sobre superficies lisas con" +
+				       "si se le aplica ferrofluido a un imán de gran potencia el imán podra deslizarse sobre superficies lisas con " +
 			           "un mínimo de resistencia");
 			}else
 			if (this.gameObject.tag == "Atomo4") {
 				GUI.Label (new Rect (65, 40, 200, 500), "Los ferrofluidos se podrían utilizar para las coyunturas de los robots.");
 			}
-					
-			// You may put a button to close the pop up too
 			
 			if (GUI.Button(new Rect(50, 200, 75, 30), "OK"))
 			{

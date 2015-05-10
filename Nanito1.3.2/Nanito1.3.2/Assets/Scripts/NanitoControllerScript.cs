@@ -8,6 +8,7 @@ public class NanitoControllerScript : MonoBehaviour {
 	private float move;
 
 	Animator anim;
+	Animator anim1;
 
 	float wingsFactor = 600f;
 	int wingsCounter = 0;
@@ -24,6 +25,8 @@ public class NanitoControllerScript : MonoBehaviour {
 	bool doubleJump = false;
 	private int time;
 	private Time timer;
+
+	public Texture2D background;
 
 	// Use this for initialization
 	void Start () {
@@ -87,6 +90,8 @@ public class NanitoControllerScript : MonoBehaviour {
 		ShieldScript shield = collision.gameObject.GetComponent<ShieldScript>();
 		FfScript ffBottle = collision.gameObject.GetComponent<FfScript>();
 		WingsCounter wings = collision.gameObject.GetComponent<WingsCounter>();
+		RobotArm robot = GetComponent<RobotArm> ();
+
 
 		if (goo != null) {
 			damagePlayer = true;
@@ -113,28 +118,35 @@ public class NanitoControllerScript : MonoBehaviour {
 			Destroy(popUp.gameObject.GetComponent<Collider2D>());
 		}
 
-		if(collision.gameObject.tag == "MovingPlatform"){
+		if (collision.gameObject.tag == "MovingPlatform"){
 			this.transform.parent = collision.transform;
 		}
 
+		if (collision.gameObject.tag == "lever"){
+			RobotArm.move = true;
+		}
+
+		if (collision.gameObject.tag == "lever1") {
+			RobotArm.move1 = true;
+		}
 
 		if (collision.gameObject.tag == "Boss") {
+			boss.gameObject.GetComponent<Renderer>().enabled = true;
+			
 			showPopUp = true;
 			maxSpeed = 0;
-			anim.enabled = false;
-
+			
 			if (i == 5) {
-				maxSpeed = 30;
-				anim.enabled = true;
-				Destroy(boss.gameObject.GetComponent<Collider2D>());
+				maxSpeed = 25;
+				Destroy(boss.gameObject);
 				boss.gameObject.GetComponent<Renderer>().enabled = false;
-
 			}
 		}
 
 		if (collision.gameObject.tag == "Door") {
 			Application.LoadLevel("Hidrofobia");
 		}
+
 		if (wings != null) {
 			wings.GetComponent<Renderer>().enabled = false;
 			wings.GetComponent<PolygonCollider2D>().enabled = false;
@@ -243,21 +255,19 @@ public class NanitoControllerScript : MonoBehaviour {
 	{		
 		//show window if you touched collider
 		if (showPopUp == true) {
-			GUI.Window (0, new Rect ((Screen.width / 2) - 150, (Screen.height / 2) - 130, 300, 250), ShowGUI, "BOSS FIGHT");
+			GUI.Window (0, new Rect ((Screen.width / 2) - 350, (Screen.height / 2) - 130, 300, 250), ShowGUI, "BOSS FIGHT");
+			GUI.DrawTexture (new Rect ((Screen.width / 2) - 350, (Screen.height / 2) - 130, 300, 250), background);
 		}
 	}
-
+	
 	void ShowGUI(int windowID)
 	{	
 		bool damagePlayer = false;
 		HealthScript playerHealth = this.GetComponent<HealthScript> ();
 
-		GUI.backgroundColor = Color.black;
-		GUI.contentColor = Color.green;
-		
-		if  (i == 0) {
-		
-			GUI.Label (new Rect (65, 40, 200, 500),  "Are you hungry?\n [A] Yes\n [B] No\n [C] I don\'t know\n");
+		switch (i) {
+		case 0:
+			GUI.Label (new Rect (65, 40, 200, 500),  "¿A que se debe la forma peculiar de un ferrofluido?\n [A] Las lineas del campo magnetico\n [B] Gravedad\n [C] Temperatura\n");
 			if (GUI.Button (new Rect (50, 150, 40, 30), "A")) {
 				correct_answer = 1;
 				i++;
@@ -288,11 +298,10 @@ public class NanitoControllerScript : MonoBehaviour {
 					clicks = 0;
 				}
 			}
-		}
+			break;
 		
-		if (i == 1) {
-			showPopUp = true;
-			GUI.Label (new Rect (65, 40, 200, 500), "Do you want to eat?\n [A] Yes\n [B] No\n [C] I don\'t know\n");
+		case 1:
+			GUI.Label (new Rect (65, 40, 200, 500), "¿Que es un ferrofluido?\n [A] Un liquido que no se polariza en un campo magnetico\n [B] Un liquido que repele el agua\n [C] Un liquido que se polariza en un campo magnetico\n");
 			if (GUI.Button (new Rect (50, 150, 40, 30), "A")) {
 				correct_answer = 0;
 				clicks++;
@@ -323,114 +332,291 @@ public class NanitoControllerScript : MonoBehaviour {
 				correct_answer = 1;
 				i++;
 			}
-		}
-		
-		if (i == 2) {
-			GUI.Label (new Rect (65, 40, 200, 500), "Do you want to take a nap?\n [A] Yes\n [B] No\n [C] I don\'t know\n");
-			if (GUI.Button (new Rect (50, 150, 40, 30), "A")) {
-				correct_answer = 0;
-				clicks++;
-				if(playerHealth != null) {
-					playerHealth.Damage(4);
-				} 
-				if (clicks == 3) {
-					showPopUp = false;
-					maxSpeed = 30;
-					anim.enabled = true;
-					clicks = 0;
-				}
-			} else
-			if (GUI.Button (new Rect (100, 150, 40, 30), "B")) {
-				correct_answer = 0;
-				clicks++;
-				if(playerHealth != null) {
-					playerHealth.Damage(4);
-				} 
-				if (clicks == 3) {
-					showPopUp = false;
-					maxSpeed = 30;
-					anim.enabled = true;
-					clicks = 0;
-				}
-			} else
-			if (GUI.Button (new Rect (150, 150, 40, 30), "C")) {
-				correct_answer = 1;
-				i++;
-			}
-		}
-		
-		if (i == 3) {
-			GUI.Label (new Rect (65, 40, 200, 500), "Are you sleepy?\n [A] Yes\n [B] No\n [C] I don\'t know\n");
-			if (GUI.Button (new Rect (50, 150, 40, 30), "A")) {
-				correct_answer = 0;
-				clicks++;
-				if(playerHealth != null) {
-					playerHealth.Damage(4);
-				} 
-				if (clicks == 3) {
-					showPopUp = false;
-					maxSpeed = 30;
-					anim.enabled = true;
-					clicks = 0;
-				}
-			} else
-			if (GUI.Button (new Rect (100, 150, 40, 30), "B")) {
-				correct_answer = 1;
-				i++;
-			} else
-			if (GUI.Button (new Rect (150, 150, 40, 30), "C")) {
-				correct_answer = 0;
-				clicks++;
-				if(playerHealth != null) {
-					playerHealth.Damage(4);
-				} 
-				if (clicks == 3) {
-					showPopUp = false;
-					maxSpeed = 30;
-					anim.enabled = true;
-					clicks = 0;
-				}
-			}
-		}
-		
-		if (i == 4) {
-			GUI.Label (new Rect (65, 40, 200, 500), "Are you alive?\n [A] Yes\n [B] No\n [C] I don\'t know\n");
-			if (GUI.Button (new Rect (50, 150, 40, 30), "A")) {
-				correct_answer = 0;
-				clicks++;
-				if(playerHealth != null) {
-					playerHealth.Damage(4);
-				} 
-				if (clicks == 3) {
-					showPopUp = false;
-					maxSpeed = 30;
-					anim.enabled = true;
-					clicks = 0;
-				}
-			} else
-			if (GUI.Button (new Rect (100, 150, 40, 30), "B")) {
-				correct_answer = 1;
-				i++;
-			} else
-			if (GUI.Button (new Rect (150, 150, 40, 30), "C")) {
-				correct_answer = 0;
-				clicks++;
-				if(playerHealth != null) {
-					playerHealth.Damage(4);
-				} 
-				if (clicks == 3) {
-					showPopUp = false;
-					maxSpeed = 30;
-					anim.enabled = true;
-					clicks = 0;
-				}
-			}
-		}
-		
-		if (i == 5) {
-			showPopUp = false;
+			break;
 
+		case 2:
+			GUI.Label (new Rect (65, 40, 200, 500), "¿Como los ferrofluidos ayudan a combatir el cancer?\n [A] Los ferrofluidos no son capaces de combatir el cancer\n [B] Quimeoterapia usando ferrofluidos\n [C] Utilizando una tecnica llamada cocinar el tumor\n");
+			if (GUI.Button (new Rect (50, 150, 40, 30), "A")) {
+				correct_answer = 0;
+				clicks++;
+				if(playerHealth != null) {
+					playerHealth.Damage(4);
+				} 
+				if (clicks == 3) {
+					showPopUp = false;
+					maxSpeed = 30;
+					anim.enabled = true;
+					clicks = 0;
+				}
+			} else
+			if (GUI.Button (new Rect (100, 150, 40, 30), "B")) {
+				correct_answer = 0;
+				clicks++;
+				if(playerHealth != null) {
+					playerHealth.Damage(4);
+				} 
+				if (clicks == 3) {
+					showPopUp = false;
+					maxSpeed = 30;
+					anim.enabled = true;
+					clicks = 0;
+				}
+			} else
+			if (GUI.Button (new Rect (150, 150, 40, 30), "C")) {
+				correct_answer = 1;
+				i++;
+			}
+			break;
+
+		case 3:
+			GUI.Label (new Rect (65, 40, 200, 500), "¿Que le pasa a un iman y un metal si se le aplica ferrofluido?\n [A] Aumenta la friccion\n [B] Disminuye la friccion\n [C] Se queda igual\n");
+			if (GUI.Button (new Rect (50, 150, 40, 30), "A")) {
+				correct_answer = 0;
+				clicks++;
+				if(playerHealth != null) {
+					playerHealth.Damage(4);
+				} 
+				if (clicks == 3) {
+					showPopUp = false;
+					maxSpeed = 30;
+					anim.enabled = true;
+					clicks = 0;
+				}
+			} else
+			if (GUI.Button (new Rect (100, 150, 40, 30), "B")) {
+				correct_answer = 1;
+				i++;
+			} else
+			if (GUI.Button (new Rect (150, 150, 40, 30), "C")) {
+				correct_answer = 0;
+				clicks++;
+				if(playerHealth != null) {
+					playerHealth.Damage(4);
+				} 
+				if (clicks == 3) {
+					showPopUp = false;
+					maxSpeed = 30;
+					anim.enabled = true;
+					clicks = 0;
+				}
+			}
+			break;
+
+		case 4:
+			GUI.Label (new Rect (65, 40, 200, 500), "¿En que parte de los robots se utiliza ferrofluidos?\n [A] La cabeza\n [B] Las coyunturas\n [C] El cuello\n");
+			if (GUI.Button (new Rect (50, 150, 40, 30), "A")) {
+				correct_answer = 0;
+				clicks++;
+				if(playerHealth != null) {
+					playerHealth.Damage(4);
+				} 
+				if (clicks == 3) {
+					showPopUp = false;
+					maxSpeed = 30;
+					anim.enabled = true;
+					clicks = 0;
+				}
+			} else
+			if (GUI.Button (new Rect (100, 150, 40, 30), "B")) {
+				correct_answer = 1;
+				i++;
+			} else
+			if (GUI.Button (new Rect (150, 150, 40, 30), "C")) {
+				correct_answer = 0;
+				clicks++;
+				if(playerHealth != null) {
+					playerHealth.Damage(4);
+				} 
+				if (clicks == 3) {
+					showPopUp = false;
+					maxSpeed = 30;
+					anim.enabled = true;
+					clicks = 0;
+				}
+			}
+			break;
+
+		case 5:
+			showPopUp = false;
+			break;
 		}
+
+
+		
+
+//		if  (i == 0) {
+//			GUI.Label (new Rect (65, 40, 200, 500),  "¿A que se debe la forma peculiar de un ferrofluido?\n [A] Las lineas del campo magnetico\n [B] Gravedad\n [C] Temperatura\n");
+//			if (GUI.Button (new Rect (50, 150, 40, 30), "A")) {
+//				correct_answer = 1;
+//				i++;
+//			} else
+//			if (GUI.Button (new Rect (100, 150, 40, 30), "B")) {
+//				correct_answer = 0;
+//				clicks++;
+//				if(playerHealth != null) {
+//					playerHealth.Damage(4);
+//				} 
+//				if (clicks == 3) {
+//					showPopUp = false;
+//					maxSpeed = 30;
+//					anim.enabled = true;
+//					clicks = 0;
+//				}
+//			} else
+//			if (GUI.Button (new Rect (150, 150, 40, 30), "C")) {
+//				correct_answer = 0;
+//				clicks++;
+//				if(playerHealth != null) {
+//					playerHealth.Damage(4);
+//				} 
+//				if (clicks == 3) {
+//					showPopUp = false;
+//					maxSpeed = 30;
+//					anim.enabled = true;
+//					clicks = 0;
+//				}
+//			}
+//		}
+//		
+//		if (i == 1) {
+//			GUI.Label (new Rect (65, 40, 200, 500), "¿Que es un ferrofluido?\n [A] Un liquido que no se polariza en un campo magnetico\n [B] Un liquido que repele el agua\n [C] Un liquido que se polariza en un campo magnetico\n");
+//			if (GUI.Button (new Rect (50, 150, 40, 30), "A")) {
+//				correct_answer = 0;
+//				clicks++;
+//				if(playerHealth != null) {
+//					playerHealth.Damage(4);
+//				} 
+//				if (clicks == 3) {
+//					showPopUp = false;
+//					maxSpeed = 30;
+//					anim.enabled = true;
+//					clicks = 0;
+//				}
+//			} else
+//			if (GUI.Button (new Rect (100, 150, 40, 30), "B")) {
+//				correct_answer = 0;
+//				clicks++;
+//				if(playerHealth != null) {
+//					playerHealth.Damage(4);
+//				} 
+//				if (clicks == 3) {
+//					showPopUp = false;
+//					maxSpeed = 30;
+//					anim.enabled = true;
+//					clicks = 0;
+//				}
+//			} else
+//			if (GUI.Button (new Rect (150, 150, 40, 30), "C")) {
+//				correct_answer = 1;
+//				i++;
+//			}
+//		}
+//		
+//		if (i == 2) {
+//			GUI.Label (new Rect (65, 40, 200, 500), "¿Como los ferrofluidos ayudan a combatir el cancer?\n [A] Los ferrofluidos no son capaces de combatir el cancer\n [B] Quimeoterapia usando ferrofluidos\n [C] Utilizando una tecnica llamada cocinar el tumor\n");
+//			if (GUI.Button (new Rect (50, 150, 40, 30), "A")) {
+//				correct_answer = 0;
+//				clicks++;
+//				if(playerHealth != null) {
+//					playerHealth.Damage(4);
+//				} 
+//				if (clicks == 3) {
+//					showPopUp = false;
+//					maxSpeed = 30;
+//					anim.enabled = true;
+//					clicks = 0;
+//				}
+//			} else
+//			if (GUI.Button (new Rect (100, 150, 40, 30), "B")) {
+//				correct_answer = 0;
+//				clicks++;
+//				if(playerHealth != null) {
+//					playerHealth.Damage(4);
+//				} 
+//				if (clicks == 3) {
+//					showPopUp = false;
+//					maxSpeed = 30;
+//					anim.enabled = true;
+//					clicks = 0;
+//				}
+//			} else
+//			if (GUI.Button (new Rect (150, 150, 40, 30), "C")) {
+//				correct_answer = 1;
+//				i++;
+//			}
+//		}
+//		if (i == 3) {
+//			GUI.Label (new Rect (65, 40, 200, 500), "¿Que le pasa a un iman y un metal si se le aplica ferrofluido?\n [A] Aumenta la friccion\n [B] Disminuye la friccion\n [C] Se queda igual\n");
+//			if (GUI.Button (new Rect (50, 150, 40, 30), "A")) {
+//				correct_answer = 0;
+//				clicks++;
+//				if(playerHealth != null) {
+//					playerHealth.Damage(4);
+//				} 
+//				if (clicks == 3) {
+//					showPopUp = false;
+//					maxSpeed = 30;
+//					anim.enabled = true;
+//					clicks = 0;
+//				}
+//			} else
+//			if (GUI.Button (new Rect (100, 150, 40, 30), "B")) {
+//				correct_answer = 1;
+//				i++;
+//			} else
+//			if (GUI.Button (new Rect (150, 150, 40, 30), "C")) {
+//				correct_answer = 0;
+//				clicks++;
+//				if(playerHealth != null) {
+//					playerHealth.Damage(4);
+//				} 
+//				if (clicks == 3) {
+//					showPopUp = false;
+//					maxSpeed = 30;
+//					anim.enabled = true;
+//					clicks = 0;
+//				}
+//			}
+//		}
+//		
+//		if (i == 4) {
+//			GUI.Label (new Rect (65, 40, 200, 500), "¿En que parte de los robots se utiliza ferrofluidos?\n [A] La cabeza\n [B] Las coyunturas\n [C] El cuello\n");
+//			if (GUI.Button (new Rect (50, 150, 40, 30), "A")) {
+//				correct_answer = 0;
+//				clicks++;
+//				if(playerHealth != null) {
+//					playerHealth.Damage(4);
+//				} 
+//				if (clicks == 3) {
+//					showPopUp = false;
+//					maxSpeed = 30;
+//					anim.enabled = true;
+//					clicks = 0;
+//				}
+//			} else
+//			if (GUI.Button (new Rect (100, 150, 40, 30), "B")) {
+//				correct_answer = 1;
+//				i++;
+//			} else
+//			if (GUI.Button (new Rect (150, 150, 40, 30), "C")) {
+//				correct_answer = 0;
+//				clicks++;
+//				if(playerHealth != null) {
+//					playerHealth.Damage(4);
+//				} 
+//				if (clicks == 3) {
+//					showPopUp = false;
+//					maxSpeed = 30;
+//					anim.enabled = true;
+//					clicks = 0;
+//				}
+//			}
+//		}
+//		
+//		if (i == 5) {
+//			showPopUp = false;
+//			
+//		}
 		
 		
 	}

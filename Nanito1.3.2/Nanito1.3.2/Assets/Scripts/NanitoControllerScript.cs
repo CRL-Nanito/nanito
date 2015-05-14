@@ -8,7 +8,7 @@ public class NanitoControllerScript : MonoBehaviour {
 	private float move;
 
 	Animator anim;
-	Animator anim1;
+	Animator bridgeAnim;
 
 	float wingsFactor = 600f;
 	int wingsCounter = 0;
@@ -28,9 +28,12 @@ public class NanitoControllerScript : MonoBehaviour {
 
 	public Texture2D background;
 
+
+
 	// Use this for initialization
 	void Start () {
 		anim = GetComponent<Animator> ();
+		BridgePlatformScript bridge = GetComponent<BridgePlatformScript>();
 	}
 	
 	// Update is called once per frame
@@ -91,7 +94,9 @@ public class NanitoControllerScript : MonoBehaviour {
 		FfScript ffBottle = collision.gameObject.GetComponent<FfScript>();
 		WingsCounter wings = collision.gameObject.GetComponent<WingsCounter>();
 		RobotArm robot = GetComponent<RobotArm> ();
+		//BridgePlatformScript bridge = GetComponent<BridgePlatformScript> ();
 
+		
 
 		if (goo != null) {
 			damagePlayer = true;
@@ -184,6 +189,42 @@ public class NanitoControllerScript : MonoBehaviour {
 			Destroy(collision.gameObject);
 		}
 
+		if (collision.gameObject.tag == "Bridge1") {
+			//bridgeAnim.Play("Bridge");
+			//bridgeAnim.SetBool("Bridge1", true);
+			BridgePlatformScript.bridge1 = true;
+		}
+		if (collision.gameObject.tag == "Bridge2") {
+			//bridgeAnim.SetBool("Bridge2", true);
+			BridgePlatformScript.bridge2 = true;
+
+		}
+		if (collision.gameObject.tag == "Bridge3") {
+			//bridgeAnim.SetBool("Bridge3", true);
+			BridgePlatformScript.bridge3 = true;
+
+		}
+		if (collision.gameObject.tag == "Bridge4") {
+			//bridgeAnim.SetBool("Bridge4", true);
+			BridgePlatformScript.bridge4 = true;
+
+		}
+		if (collision.gameObject.tag == "Bridge5") {
+			//bridgeAnim.SetBool("Bridge5", true);
+			BridgePlatformScript.bridge5 = true;
+
+		}
+		if (collision.gameObject.tag == "Bridge6") {
+			//bridgeAnim.SetBool("Bridge6", true);
+			BridgePlatformScript.bridge6 = true;
+
+		}
+		if (collision.gameObject.tag == "Bridge7") {
+			//bridgeAnim.SetBool("Bridge7", true);
+			BridgePlatformScript.bridge7 = true;
+
+		}
+
 
 	}
 
@@ -220,6 +261,7 @@ public class NanitoControllerScript : MonoBehaviour {
 				shieldFlag = false;
 			}
 		}
+
 
 	}
 	

@@ -37,7 +37,7 @@ public class Gun : MonoBehaviour {
 		}
 	}
 	void Shoot(){
-		Debug.Log ("Test");
+		//Debug.Log ("Test");
 		Vector2 mousePosition = new Vector2 (1f,1f);
 		Vector2 firePointPosition = new Vector2 (firePoint.position.x, firePoint.position.y);
 		RaycastHit2D hit = Physics2D.Raycast (firePointPosition, mousePosition - firePointPosition,1, ToHit);

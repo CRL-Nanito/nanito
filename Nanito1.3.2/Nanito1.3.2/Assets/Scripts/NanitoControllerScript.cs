@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.UI;
 using System.Collections;
 
 public class NanitoControllerScript : MonoBehaviour {
@@ -14,6 +15,8 @@ public class NanitoControllerScript : MonoBehaviour {
 	int wingsCounter = 0;
 	bool grounded = false;
 	bool shieldFlag = false;
+	bool damagePlayer = false;
+
 
 	public GameObject shieldGO;
 
@@ -27,7 +30,9 @@ public class NanitoControllerScript : MonoBehaviour {
 	private Time timer;
 
 	public Texture2D background;
-
+	public Image damageImage;                                   // Reference to an image to flash on the screen on being hurt.
+	public float flashSpeed = 5f;                               // The speed the damageImage will fade at.
+	public Color flashColour = new Color(1f, 0f, 0f, 0.1f);     // The colour the damageImage is set to, to flas
 
 
 	// Use this for initialization
@@ -81,19 +86,19 @@ public class NanitoControllerScript : MonoBehaviour {
 	}
 
 	void OnCollisionEnter2D(Collision2D collision){
-		bool damagePlayer = false;
 		bool hell = false;
 
 		//collision with ff
 		FerrofluidScript goo = collision.gameObject.GetComponent<FerrofluidScript> ();
-		HealthScript playerHealth = this.GetComponent<HealthScript>();
+		HealthScript playerHealth = GetComponent<HealthScript> ();
 		FloorScript floor = collision.gameObject.GetComponent<FloorScript> ();
 		PopUpScript popUp = collision.gameObject.GetComponent<PopUpScript> ();
 		BossFight boss = collision.gameObject.GetComponent<BossFight> ();
-		ShieldScript shield = collision.gameObject.GetComponent<ShieldScript>();
-		FfScript ffBottle = collision.gameObject.GetComponent<FfScript>();
-		WingsCounter wings = collision.gameObject.GetComponent<WingsCounter>();
+		ShieldScript shield = collision.gameObject.GetComponent<ShieldScript> ();
+		FfScript ffBottle = collision.gameObject.GetComponent<FfScript> ();
+		WingsCounter wings = collision.gameObject.GetComponent<WingsCounter> ();
 		RobotArm robot = GetComponent<RobotArm> ();
+
 		//BridgePlatformScript bridge = GetComponent<BridgePlatformScript> ();
 
 		
@@ -101,6 +106,11 @@ public class NanitoControllerScript : MonoBehaviour {
 		if (goo != null) {
 			damagePlayer = true;
 		}
+
+		if (collision.gameObject.tag == "Enemy") {
+			damagePlayer = true;
+		}
+	
 
 		if (floor != null) {
 			damagePlayer = true;
@@ -193,6 +203,7 @@ public class NanitoControllerScript : MonoBehaviour {
 			//bridgeAnim.Play("Bridge");
 			//bridgeAnim.SetBool("Bridge1", true);
 			BridgePlatformScript.bridge1 = true;
+
 		}
 		if (collision.gameObject.tag == "Bridge2") {
 			//bridgeAnim.SetBool("Bridge2", true);
@@ -262,6 +273,22 @@ public class NanitoControllerScript : MonoBehaviour {
 			}
 		}
 
+		// If the player has just been damaged...
+		if(damagePlayer)
+		{
+			// ... set the colour of the damageImage to the flash colour.
+			damageImage.color = flashColour;
+		}
+		// Otherwise...
+		else
+		{
+			// ... transition the colour back to clear.
+			damageImage.color = Color.Lerp (damageImage.color, Color.clear, flashSpeed * Time.deltaTime);
+		}
+		
+		// Reset the damaged flag.
+		damagePlayer = false;
+
 
 	}
 	
@@ -279,6 +306,7 @@ public class NanitoControllerScript : MonoBehaviour {
 		yield return new WaitForSeconds (3);
 		shieldGO.SetActive(false);
 	}
+	
 
 	void OnCollisionExit2D(Collision2D collision){
 		if (collision.gameObject.tag == "MovingPlatform"){
@@ -301,6 +329,8 @@ public class NanitoControllerScript : MonoBehaviour {
 			GUI.DrawTexture (new Rect ((Screen.width / 2) - 350, (Screen.height / 2) - 130, 300, 250), background);
 		}
 	}
+
+
 	
 	void ShowGUI(int windowID)
 	{	

@@ -28,6 +28,7 @@
 
 		if (bridge1 == true) {
 			anim.SetBool ("Bridge1", true);
+//			GetComponent<Animation>()["Bridge1"].speed = 0.5;
 			//anim.SetBool ("Bridge1", false);
 		}		
 		if (bridge2 == true) {

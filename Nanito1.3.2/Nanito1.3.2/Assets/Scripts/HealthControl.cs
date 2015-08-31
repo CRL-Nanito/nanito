@@ -72,6 +72,7 @@ public class HealthControl : MonoBehaviour {
 			break;
 
 		case 0:
+			GetComponent<GUITexture>().texture = null;
 			break;
 		}
 	}

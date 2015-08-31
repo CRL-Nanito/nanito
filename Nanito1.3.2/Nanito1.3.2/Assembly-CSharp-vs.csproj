@@ -48,14 +48,17 @@
   <ItemGroup>
      <Compile Include="Assets\Scripts\BackgroundScroller.cs" />
      <Compile Include="Assets\Scripts\BlinkingPlatforms.cs" />
+     <Compile Include="Assets\Scripts\BlueCell.cs" />
      <Compile Include="Assets\Scripts\BossFight.cs" />
      <Compile Include="Assets\Scripts\BoxController.cs" />
      <Compile Include="Assets\Scripts\BridgePlatformScript.cs" />
+     <Compile Include="Assets\Scripts\BulletScript.cs" />
      <Compile Include="Assets\Scripts\Camera2DFollow.cs" />
      <Compile Include="Assets\Scripts\CameraRunnerScript.cs" />
      <Compile Include="Assets\Scripts\ChangeScene.cs" />
      <Compile Include="Assets\Scripts\CharacterChange.cs" />
      <Compile Include="Assets\Scripts\CharacterSelection.cs" />
+     <Compile Include="Assets\Scripts\CheckpointScript.cs" />
      <Compile Include="Assets\Scripts\FerrofluidScript.cs" />
      <Compile Include="Assets\Scripts\FfCounterManager.cs" />
      <Compile Include="Assets\Scripts\FfScript.cs" />
@@ -65,18 +68,17 @@
      <Compile Include="Assets\Scripts\HealthScript.cs" />
      <Compile Include="Assets\Scripts\MovingPlatformScript.cs" />
      <Compile Include="Assets\Scripts\NanitoControllerScript.cs" />
+     <Compile Include="Assets\Scripts\OrangeCell.cs" />
      <Compile Include="Assets\Scripts\PlatformActivator.cs" />
      <Compile Include="Assets\Scripts\PlayerSpawn.cs" />
      <Compile Include="Assets\Scripts\PopUpScript.cs" />
+     <Compile Include="Assets\Scripts\RedCell.cs" />
      <Compile Include="Assets\Scripts\RobotArm.cs" />
      <Compile Include="Assets\Scripts\RunHankey.cs" />
      <Compile Include="Assets\Scripts\ShieldCounterManager.cs" />
      <Compile Include="Assets\Scripts\ShieldScript.cs" />
      <Compile Include="Assets\Scripts\SpeedBooster.cs" />
      <Compile Include="Assets\Scripts\WingsCounter.cs" />
-     <Compile Include="Assets\Scripts\celazul.cs" />
-     <Compile Include="Assets\Scripts\celnaranja.cs" />
-     <Compile Include="Assets\Scripts\celrojo.cs" />
  <Reference Include="UnityEngine.UI">
  <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
  </Reference>

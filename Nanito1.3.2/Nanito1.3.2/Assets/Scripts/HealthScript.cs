@@ -10,7 +10,7 @@ public class HealthScript : MonoBehaviour {
 
 
 
-	public void Damage(int damageCount){
+	public void Damage(int damageCount, float respawnPosX, float respawnPosY){
 
 		// Set the damaged flag so the screen will flash.
 		damaged = true;
@@ -18,7 +18,7 @@ public class HealthScript : MonoBehaviour {
 		hp -= damageCount;
 
 		if (hp <= 0) {
-			StartCoroutine(Dead ());
+			StartCoroutine(Dead (respawnPosX,respawnPosY));
 		}
 
 	}
@@ -34,11 +34,11 @@ public class HealthScript : MonoBehaviour {
 //		}
 //	}
 
-	IEnumerator Dead() {
+	IEnumerator Dead(float respawnPosX, float respawnPosY) {
 		Debug.Log ("dead");
 		GetComponent<Renderer>().enabled = false;
 		yield return new WaitForSeconds(1);
-		transform.position = new Vector2 (-284.7662f, -8.521203f);
+		transform.position = new Vector2 (respawnPosX, respawnPosY);
 		Debug.Log ("respawn");
 		GetComponent<Renderer>().enabled = true;
 		hp = maxhp;					//cambio

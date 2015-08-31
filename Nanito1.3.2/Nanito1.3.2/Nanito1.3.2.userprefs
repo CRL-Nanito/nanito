@@ -1,12 +1,13 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/Gun.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\Gun.cs">
     <Files>
-      <File FileName="Assets/Scripts/BridgePlatformScript.cs" Line="31" Column="3" />
-      <File FileName="Assets/Scripts/NanitoControllerScript.cs" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/BlinkingPlatforms.cs" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/HealthScript.cs" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/Gun.cs" Line="41" Column="69" />
+      <File FileName="Assets\Scripts\Gun.cs" Line="77" Column="2" />
+      <File FileName="Assets\Scripts\NanitoControllerScript.cs" Line="288" Column="4" />
+      <File FileName="Assets\Scripts\FfScript.cs" Line="14" Column="1" />
+      <File FileName="Assets\Scripts\FfCounterManager.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\OrangeCell.cs" Line="12" Column="3" />
+      <File FileName="Assets\Scripts\BulletScript.cs" Line="10" Column="33" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
